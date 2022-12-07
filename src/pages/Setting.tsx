@@ -203,7 +203,7 @@ export default function Setting() {
           <Pressable
             onPress={() => {
               Alert.alert(
-                '',
+                '정말 탈퇴하시겠나요?',
                 '탈퇴 시 절약금액, 구매내역 등 모든 정보가 삭제되며 7일간 다시 가입할 수 없어요.',
                 [
                   {

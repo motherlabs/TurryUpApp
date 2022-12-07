@@ -126,12 +126,12 @@ export default function MyInfo() {
         {user.state === UserState.BUYER ? (
           <View style={tailwind(' h-full bg-background relative')}>
             <View style={tailwind('px-5 flex flex-row  items-center mb-4')}>
-              <Text style={tailwind(' text-[26px] font-[700]')}>
+              {/* <Text style={tailwind(' text-[26px] font-[700]')}>
                 {`${user.phoneNumber.substring(
                   0,
                   3,
                 )}-${user.phoneNumber.substring(3, 7)}-`}
-              </Text>
+              </Text> */}
               <Text style={tailwind(' text-[26px] font-[700] text-primary_og')}>
                 {`${user.phoneNumber.substring(7, 11)}`}
               </Text>

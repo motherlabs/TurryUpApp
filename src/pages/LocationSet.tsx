@@ -290,7 +290,7 @@ export default function LocationSet() {
                     style={tailwind('text-[22px] font-[600] text-black mr-2')}>
                     {address.type === 'MYHOME' ? '우리집' : address.name}
                   </Text>
-                  <ArrowBottomIcon width={21} height={21} />
+                  <ArrowBottomIcon width={10} height={10} />
                 </View>
               ) : (
                 <View style={tailwind('flex flex-row items-center')}>
@@ -299,7 +299,7 @@ export default function LocationSet() {
                     주소설정
                   </Text>
 
-                  <ArrowBottomIcon width={21} height={21} />
+                  <ArrowBottomIcon width={10} height={10} />
                 </View>
               )}
             </Pressable>

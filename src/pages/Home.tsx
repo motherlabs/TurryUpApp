@@ -251,7 +251,7 @@ export default function Home() {
               : address.name
           }`}
         </Text>
-        <ArrowBottomIcon width={21} height={21} />
+        <ArrowBottomIcon width={10} height={10} />
       </Pressable>
       <View style={tailwind('flex flex-row h-[70px] items-center px-4')}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -268,7 +268,7 @@ export default function Home() {
               style={tailwind(
                 `${
                   filteredCategory === '' ? 'text-white' : 'text-[#1C1C1E]'
-                } text-[14px] font-[700]`,
+                } text-[13px] font-[700]`,
               )}>
               전체보기
             </Text>
@@ -293,7 +293,7 @@ export default function Home() {
                       v.name === filteredCategory
                         ? 'text-white'
                         : 'text-[#1C1C1E]'
-                    }  text-[14px] font-[700]`,
+                    }  text-[13px] font-[700]`,
                   )}>
                   {v.name}
                 </Text>
