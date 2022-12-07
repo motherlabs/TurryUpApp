@@ -90,7 +90,7 @@ export default function Start() {
                 navigation.navigate(RouterList.Login);
               }}
               style={tailwind(
-                'w-[315px] bg-primary h-[52px] mt-1 mb-[5px] rounded-[4px] flex flex-col items-center justify-center',
+                'w-[315px] bg-primary h-[52px] mt-1 mb-[7px] rounded-[4px] flex flex-col items-center justify-center',
               )}>
               <Text style={tailwind('text-black font-[600] text-[16px]')}>
                 시작하기
@@ -111,7 +111,7 @@ export default function Start() {
                   ' px-2 h-[52px] flex flex-col items-center justify-center',
                 )}>
                 <Text style={tailwind('text-[#FFE145] font-[700]')}>
-                  시작하기
+                  시작하기/테스트
                 </Text>
               </Pressable>
             </View>

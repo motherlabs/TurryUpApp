@@ -204,6 +204,7 @@ PODS:
     - GoogleUtilities/MethodSwizzler
   - GoogleUtilities/UserDefaults (7.10.0):
     - GoogleUtilities/Logger
+  - hermes-engine (0.69.5)
   - iamport-react-native (2.0.2):
     - React-Core
   - JWT (3.0.0-beta.14):
@@ -249,6 +250,12 @@ PODS:
     - DoubleConversion
     - fmt (~> 6.2.1)
     - glog
+  - RCT-Folly/Futures (2021.06.28.00-v2):
+    - boost
+    - DoubleConversion
+    - fmt (~> 6.2.1)
+    - glog
+    - libevent
   - RCTRequired (0.69.5)
   - RCTTypeSafety (0.69.5):
     - FBLazyVector (= 0.69.5)
@@ -426,6 +433,17 @@ PODS:
     - React-logger (= 0.69.5)
     - React-perflogger (= 0.69.5)
     - React-runtimeexecutor (= 0.69.5)
+  - React-hermes (0.69.5):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2021.06.28.00-v2)
+    - RCT-Folly/Futures (= 2021.06.28.00-v2)
+    - React-cxxreact (= 0.69.5)
+    - React-jsi (= 0.69.5)
+    - React-jsiexecutor (= 0.69.5)
+    - React-jsinspector (= 0.69.5)
+    - React-perflogger (= 0.69.5)
   - React-jsi (0.69.5):
     - boost (= 1.76.0)
     - DoubleConversion
@@ -659,7 +677,9 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (= 0.125.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - GoogleUtilities
+  - hermes-engine (from `../node_modules/react-native/sdks/hermes/hermes-engine.podspec`)
   - iamport-react-native (from `../node_modules/iamport-react-native`)
+  - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
   - Permission-LocationAccuracy (from `../node_modules/react-native-permissions/ios/LocationAccuracy`)
@@ -679,6 +699,7 @@ DEPENDENCIES:
   - React-Core/RCTWebSocket (from `../node_modules/react-native/`)
   - React-CoreModules (from `../node_modules/react-native/React/CoreModules`)
   - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
+  - React-hermes (from `../node_modules/react-native/ReactCommon/hermes`)
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
@@ -781,6 +802,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  hermes-engine:
+    :podspec: "../node_modules/react-native/sdks/hermes/hermes-engine.podspec"
   iamport-react-native:
     :path: "../node_modules/iamport-react-native"
   Permission-Camera:
@@ -815,6 +838,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/CoreModules"
   React-cxxreact:
     :path: "../node_modules/react-native/ReactCommon/cxxreact"
+  React-hermes:
+    :path: "../node_modules/react-native/ReactCommon/hermes"
   React-jsi:
     :path: "../node_modules/react-native/ReactCommon/jsi"
   React-jsiexecutor:
@@ -934,6 +959,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 3bc3a6484b7bb20dd8489242c4dd3c92a3e5107b
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
+  hermes-engine: 479687cd0904b24f1b2ae71d1196b44786af5601
   iamport-react-native: 2effc6d89aebafca5117c214b7ed22c8d163cbb5
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
@@ -958,6 +984,7 @@ SPEC CHECKSUMS:
   React-Core: ad82eacbe769f918b0d199df3cb7c780cd3f46ff
   React-CoreModules: 72b07fed89ab0e7f2600f9275ec9642130aa920c
   React-cxxreact: 2bba16be9eb4116bee86e3dfd85aeb67b2795eca
+  React-hermes: 1bf0fdad2d569e81c3da59dc23eef5630b5f1950
   React-jsi: 013de11039e08ae5d67868a72f1012794d34e72f
   React-jsiexecutor: e42f0b46de293a026c2fb20e524d4fe09f81f575
   React-jsinspector: e385fb7a1440ae3f3b2cd1a139ca5aadaab43c10
@@ -996,7 +1023,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 7673697e7c0e9391adefae4faa087442bc04af33
   RNImageCropPicker: ffbba608264885c241cbf3a8f78eb7aeeb978241
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
-  RNReanimated: 7faa787e8d4493fbc95fab2ad331fa7625828cfa
+  RNReanimated: aaf0af38841d8fc482117e7a0c1a3f99a8ba74f4
   RNScreens: 0df01424e9e0ed7827200d6ed1087ddd06c493f9
   RNSVG: 07037623c36f12e41312730622d5f6b3656227ca
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
@@ -1007,6 +1034,6 @@ SPEC CHECKSUMS:
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 0bdd99e98c271d8388bd1a7a77dc2f7e3cb12957
+PODFILE CHECKSUM: 829bae8b971f5bebcd198bd93c5a26b6de42168b
 
 COCOAPODS: 1.11.3

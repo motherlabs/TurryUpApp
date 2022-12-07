@@ -101,7 +101,7 @@ export default function PartnerStart({setStatusbarColor}: Props) {
           </View>
           <View
             style={tailwind(
-              'absolute bottom-[13%] z-50 w-full flex flex-col items-center',
+              'absolute bottom-[14%] z-50 w-full flex flex-col items-center',
             )}>
             {/* <FadeInOut visible={visible} scale={true}>
           <Tooltip />
@@ -111,7 +111,7 @@ export default function PartnerStart({setStatusbarColor}: Props) {
                 navigation.navigate(RouterList.PartnerLogin);
               }}
               style={tailwind(
-                'w-[315px] bg-primary h-[52px] mt-1 rounded-[4px] flex flex-col items-center justify-center',
+                'w-[315px] bg-primary h-[52px] rounded-[4px] flex flex-col items-center justify-center',
               )}>
               <Text style={tailwind('text-black font-[600] text-[16px]')}>
                 시작하기

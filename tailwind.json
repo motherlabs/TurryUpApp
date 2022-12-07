@@ -549,6 +549,11 @@
 			"marginBottom": 5
 		}
 	},
+	"mb-[7px]": {
+		"style": {
+			"marginBottom": 7
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
