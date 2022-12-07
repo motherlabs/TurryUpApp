@@ -159,7 +159,9 @@ export default function Setting() {
             정보
           </Text>
           <Pressable
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate(RouterList.TermsOfService);
+            }}
             style={tailwind(
               ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
             )}>
@@ -167,7 +169,9 @@ export default function Setting() {
             <ArrowRight24 />
           </Pressable>
           <Pressable
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate(RouterList.PrivacyPolicy);
+            }}
             style={tailwind(
               ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
             )}>

@@ -41,6 +41,8 @@ import PartnerLogin from './src/pages/PartnerLogin';
 import messaging from '@react-native-firebase/messaging';
 import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import TermsOfService from './src/pages/TermsOfService';
+import PrivacyPolicy from './src/pages/PrivacyPolicy';
 
 export type RootStackParamList = {
   Admin: undefined;
@@ -62,6 +64,8 @@ export type RootStackParamList = {
   PartnerHome: undefined;
   PartnerStart: undefined;
   PartnerLogin: undefined;
+  PrivacyPolicy: undefined;
+  TermsOfService: undefined;
 };
 
 export const RouterList = {
@@ -84,6 +88,8 @@ export const RouterList = {
   PartnerHome: 'PartnerHome',
   PartnerStart: 'PartnerStart',
   PartnerLogin: 'PartnerLogin',
+  PrivacyPolicy: 'PrivacyPolicy',
+  TermsOfService: 'TermsOfService',
 } as const;
 export type RouterList = typeof RouterList[keyof typeof RouterList];
 
@@ -398,6 +404,18 @@ export default function Router() {
               name={RouterList.BuyHistory}
               options={{headerShown: false, animation: 'slide_from_right'}}>
               {_ => <BuyHistory />}
+            </Stack.Screen>
+
+            <Stack.Screen
+              name={RouterList.TermsOfService}
+              options={{headerShown: false, animation: 'slide_from_right'}}>
+              {_ => <TermsOfService />}
+            </Stack.Screen>
+
+            <Stack.Screen
+              name={RouterList.PrivacyPolicy}
+              options={{headerShown: false, animation: 'slide_from_right'}}>
+              {_ => <PrivacyPolicy />}
             </Stack.Screen>
 
             <Stack.Screen

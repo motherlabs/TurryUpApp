@@ -109,7 +109,7 @@ export default function MyInfo() {
     <SafeAreaView style={tailwind('bg-background')}>
       <View
         style={tailwind(
-          'flex flex-col items-end justify-center px-4 h-[50px]',
+          'flex flex-col items-end justify-center px-4 h-[50px] bg-background',
         )}>
         <Pressable
           onPress={() => {

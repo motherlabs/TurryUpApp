@@ -136,19 +136,31 @@ const App = () => {
   // };
 
   useEffect(() => {
-    CodePush.sync({
-      installMode: CodePush.InstallMode.IMMEDIATE,
-      mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
-      updateDialog: {
-        mandatoryUpdateMessage:
-          '필수 업데이트가 있어 설치 후 앱을 재시작합니다.',
-        mandatoryContinueButtonLabel: '재시작',
-        optionalIgnoreButtonLabel: '나중에',
-        optionalInstallButtonLabel: '재시작',
-        optionalUpdateMessage: '업데이트가 있습니다. 설치하시겠습니까?',
-        title: '업데이트 안내',
+    CodePush.sync(
+      {
+        installMode: CodePush.InstallMode.IMMEDIATE,
+        mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
+        updateDialog: {
+          mandatoryUpdateMessage:
+            '필수 업데이트가 있어 설치 후 앱을 재시작합니다.',
+          mandatoryContinueButtonLabel: '재시작',
+          optionalIgnoreButtonLabel: '나중에',
+          optionalInstallButtonLabel: '재시작',
+          optionalUpdateMessage: '업데이트가 있습니다. 설치하시겠습니까?',
+          title: '업데이트 안내',
+        },
       },
-    });
+      syncStatus => {
+        // status callback
+        // do smthing with the sync status
+        console.log(syncStatus);
+      },
+      progress => {
+        // progress callback (Specify a function here otherwise you'll get a warning)
+        // do smthing with the progress value
+        console.log(progress);
+      },
+    );
   }, []);
 
   return (

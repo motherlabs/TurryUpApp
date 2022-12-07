@@ -45,5 +45,24 @@ target 'TurryUpApp' do
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+      installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if target.name == 'React-jsi'
+              puts '*** Patching React-jsi pod...'
+              puts '***'
+              puts '*** - Adding NDEBUG=1 to silence the \'JSCRuntime destroyed with a dangling API object\''
+              puts '***   crash upon reload.'
+              puts '***'
+              puts '*** This is caused by realm-js being loaded at runtime, when CodePush tries to'
+              puts '*** reload the app. It\'s recommended to remove realm-js. After which this'
+              puts '*** workaround can be removed from Podfile.'
+              puts '***'
+              config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+              config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'NDEBUG=1'
+              puts '*** Done'
+              puts '***'
+            end
+        end
+    end
   end
 end

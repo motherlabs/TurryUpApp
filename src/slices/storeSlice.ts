@@ -28,7 +28,7 @@ const initialState: InitialState = {
     roadNameAddress: '',
     detailAddress: '',
     picupZone: '',
-    dayOff: '',
+    dayOff: '0,1,2,3,4,5,6',
     businessHours:
       '00:00-00:00,00:00-00:00,09:00-00:00,00:00-00:00,00:00-00:00,00:00-00:00,00:00-00:00',
     latitude: 0,

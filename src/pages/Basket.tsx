@@ -211,6 +211,13 @@ export default function Basket() {
           장바구니
         </Text>
       </View>
+      {basketList.length === 0 && (
+        <View
+          style={tailwind(
+            'bg-white h-[60px] w-full flex flex-row items-center justify-between border-b-4 border-gray-200',
+          )}
+        />
+      )}
       <View
         style={{
           height: Dimensions.get('window').height - 210 - StatusBarHeight!,
@@ -405,15 +412,29 @@ export default function Basket() {
             style={tailwind(
               'flex flex-col items-center justify-center w-full h-full justify-center bg-white',
             )}>
-            <FastImage
-              style={tailwind('w-[180px] h-[180px] ')}
-              resizeMode={'contain'}
-              source={require('../assets/image/empty-food.png')}
-            />
-            <View style={tailwind('mt-2')}>
-              <Text style={tailwind('text-[19px] font-[500] text-[#909090]')}>
-                장바구니가 비어있어요!
-              </Text>
+            <View style={tailwind('h-full w-full relative ')}>
+              <View
+                style={tailwind(
+                  'absolute left-0 right-0 top-[40%] w-full flex flex-col items-center',
+                )}>
+                <Text style={tailwind('text-[19px] font-[500] text-[#909090]')}>
+                  아직 장바구니에 상품이 없어요.
+                </Text>
+              </View>
+              <View
+                style={tailwind('absolute bottom-[35px] left-0 right-0 px-4')}>
+                <Pressable
+                  onPress={() => {
+                    navigation.navigate(RouterList.Home);
+                  }}
+                  style={tailwind(
+                    'flex flex-row items-center justify-center h-[60px] w-full bg-primary',
+                  )}>
+                  <Text style={tailwind('text-[16px] font-[600] text-black')}>
+                    실시간 할인 살펴보기
+                  </Text>
+                </Pressable>
+              </View>
             </View>
           </View>
         )}
@@ -455,17 +476,7 @@ export default function Basket() {
           </Pressable>
         </View>
       ) : (
-        <Pressable
-          onPress={() => {
-            navigation.navigate(RouterList.Home);
-          }}
-          style={tailwind(
-            'flex flex-row items-center justify-center h-[60px] w-full bg-primary',
-          )}>
-          <Text style={tailwind('text-[16px] font-[600] text-black')}>
-            실시간 상품 살펴보기
-          </Text>
-        </Pressable>
+        <View />
       )}
 
       <Tabbar type={TabbarType.BUYERBASKET} />

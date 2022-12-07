@@ -111,7 +111,7 @@ export default function Start() {
                   ' px-2 h-[52px] flex flex-col items-center justify-center',
                 )}>
                 <Text style={tailwind('text-[#FFE145] font-[700]')}>
-                  시작하기/테스트
+                  시작하기
                 </Text>
               </Pressable>
             </View>

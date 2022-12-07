@@ -237,6 +237,31 @@
 			"right": 12
 		}
 	},
+	"top-[77%]": {
+		"style": {
+			"top": "77%"
+		}
+	},
+	"top-[70%]": {
+		"style": {
+			"top": "70%"
+		}
+	},
+	"top-[75%]": {
+		"style": {
+			"top": "75%"
+		}
+	},
+	"bottom-[0px]": {
+		"style": {
+			"bottom": 0
+		}
+	},
+	"bottom-[35px]": {
+		"style": {
+			"bottom": 35
+		}
+	},
 	"z-50": {
 		"style": {
 			"zIndex": 50
@@ -554,6 +579,11 @@
 			"marginBottom": 7
 		}
 	},
+	"mt-12": {
+		"style": {
+			"marginTop": 48
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -794,6 +824,11 @@
 			"height": 100
 		}
 	},
+	"h-auto": {
+		"style": {
+			"height": "auto"
+		}
+	},
 	"w-[8px]": {
 		"style": {
 			"width": 8
@@ -974,6 +1009,21 @@
 			"width": 24
 		}
 	},
+	"w-[47px]": {
+		"style": {
+			"width": 47
+		}
+	},
+	"w-[48px]": {
+		"style": {
+			"width": 48
+		}
+	},
+	"w-[300px]": {
+		"style": {
+			"width": 300
+		}
+	},
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
@@ -1087,6 +1137,22 @@
 			"borderTopRightRadius": 12,
 			"borderBottomRightRadius": 12,
 			"borderBottomLeftRadius": 12
+		}
+	},
+	"rounded-2xl": {
+		"style": {
+			"borderTopLeftRadius": 16,
+			"borderTopRightRadius": 16,
+			"borderBottomRightRadius": 16,
+			"borderBottomLeftRadius": 16
+		}
+	},
+	"rounded-[66px]": {
+		"style": {
+			"borderTopLeftRadius": 66,
+			"borderTopRightRadius": 66,
+			"borderBottomRightRadius": 66,
+			"borderBottomLeftRadius": 66
 		}
 	},
 	"rounded-t-[10px]": {
@@ -1395,6 +1461,18 @@
 		"style": {
 			"--tw-bg-opacity": 1,
 			"backgroundColor": "rgb(40 40 40 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-red-600": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(220 38 38 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-pink-600": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(219 39 119 / var(--tw-bg-opacity))"
 		}
 	},
 	"p-2": {
@@ -1773,6 +1851,11 @@
 			"fontWeight": "400"
 		}
 	},
+	"font-[800]": {
+		"style": {
+			"fontWeight": "800"
+		}
+	},
 	"leading-[14px]": {
 		"style": {
 			"lineHeight": 14
@@ -1942,6 +2025,18 @@
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(255 225 69 / var(--tw-text-opacity))"
+		}
+	},
+	"text-[#ffffff]": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(255 255 255 / var(--tw-text-opacity))"
+		}
+	},
+	"text-pink-600": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(219 39 119 / var(--tw-text-opacity))"
 		}
 	},
 	"line-through": {
