@@ -16,7 +16,7 @@
     "bundle:android": "react-native bundle --assets-dest build/CodePush --bundle-output build/CodePush/index.android.bundle --dev false --entry-file index.js --platform android --sourcemap-output build/CodePush/index.android.bundle.map",
     "bundle:ios": "react-native bundle --assets-dest build/CodePush --bundle-output build/CodePush/main.jsbundle --dev false --entry-file index.js --platform ios --sourcemap-output build/CodePush/main.jsbundle.map",
     "aab:android": "yarn install --immutable --immutable-cache --check-cache && cd android && ./gradlew bundleRelease && cd .. && open android/app/build/outputs/bundle/release",
-    "apk:android": "npm ci && cd android && ./gradlew assembleRelease && cd .. && open android/app/build/outputs/apk/release",
+    "apk:android": "yarn install --immutable --immutable-cache --check-cache && cd android && ./gradlew app:assembleRelease && cd .. && open android/app/build/outputs/apk/release",
     "appcenter-android-key": "appcenter codepush deployment list -a tech-motherlabs.kr/turryup-app-android -k",
     "appcenter-ios-key": "appcenter codepush deployment list -a tech-motherlabs.kr/turryup-app-ios -k",
     "bump-patch": "npm version patch --no-git-tag-version && cd ios && bundle exec fastlane bump",

@@ -496,7 +496,7 @@ export default function GoodsAdd() {
               <BackIcon width={21} height={21} fill={'black'} />
             </Pressable>
           )}
-          <Text style={tailwind('font-[600] text-[21px]')}>
+          <Text style={tailwind('font-[600] text-[21px] leading-[24px]')}>
             {route.params.isUpdate ? `상품 수정` : `상품 등록`}
           </Text>
           {route.params.isUpdate ? (
@@ -505,7 +505,10 @@ export default function GoodsAdd() {
               style={tailwind(
                 'absolute top-0 px-[20px] right-0  h-[56px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-[21px] font-[400] text-[#FF521C]')}>
+              <Text
+                style={tailwind(
+                  'text-[21px] leading-[24px] font-[400] text-[#FF521C]',
+                )}>
                 수정
               </Text>
             </Pressable>
@@ -515,7 +518,10 @@ export default function GoodsAdd() {
               style={tailwind(
                 'absolute top-0 px-[20px] right-0  h-[56px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-[21px] font-[400] text-[#FF521C]')}>
+              <Text
+                style={tailwind(
+                  'text-[21px] leading-[24px] font-[400] text-[#FF521C]',
+                )}>
                 등록
               </Text>
             </Pressable>
@@ -635,7 +641,7 @@ export default function GoodsAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '이름' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="상품명을 입력하세요"
                 placeholderTextColor={'#D3D3D3'}
@@ -673,7 +679,7 @@ export default function GoodsAdd() {
                     onValueChange={value => setSelectedCategory(value)}>
                     <Text
                       style={tailwind(
-                        `text-[20px] font-[400] ${
+                        `text-[20px] leading-[23px] font-[400] ${
                           selectedCategory === '카테고리 선택 하세요'
                             ? 'text-[#D3D3D3]'
                             : 'text-[#1C1C1E]'
@@ -693,7 +699,7 @@ export default function GoodsAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '정상가' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="정상가를 입력하세요"
                 keyboardType="number-pad"
@@ -711,7 +717,7 @@ export default function GoodsAdd() {
                     focus === '할인판매가'
                       ? 'border-primary'
                       : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="할인판매가를 입력해주세요."
                 placeholderTextColor={'#D3D3D3'}
@@ -727,7 +733,7 @@ export default function GoodsAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '판매수량' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="판매수량"
                 keyboardType="number-pad"
@@ -751,7 +757,7 @@ export default function GoodsAdd() {
                   style={tailwind(
                     `${
                       expiryDate === '' ? 'text-[#D3D3D3]' : 'text-[#1C1C1E]'
-                    } text-[20px] font-[400]`,
+                    } text-[20px] leading-[23px] font-[400]`,
                   )}>
                   {expiryDate === '' ? '유통기한' : expiryDate}
                 </Text>
@@ -770,7 +776,10 @@ export default function GoodsAdd() {
               </Pressable>
               <View style={tailwind('mt-5')}>
                 <View style={tailwind('flex flex-row items-center')}>
-                  <Text style={tailwind('text-[18px] font-[600] mr-2')}>
+                  <Text
+                    style={tailwind(
+                      'text-[18px] leading-[21px] font-[600] mr-2',
+                    )}>
                     자동 할인
                   </Text>
                   <Switch
@@ -787,24 +796,26 @@ export default function GoodsAdd() {
                     'px-4 py-2 border border-gray-300 mt-2 mb-4',
                   )}>
                   <Text
-                    style={tailwind('text-[15px] text-[#7B7B7C] font-[600]')}>
+                    style={tailwind(
+                      'text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
+                    )}>
                     {`시간이 지남에 따라 자동으로 추가 할인이 들어가는 기능입니다.`}
                   </Text>
                   <Text
                     style={tailwind(
-                      'mt-1 text-[15px] text-[#7B7B7C] font-[600]',
+                      'mt-1 text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
                     )}>
                     {`유통기한 24시간 남았을 때 : 5% 추가 할인`}
                   </Text>
                   <Text
                     style={tailwind(
-                      'mt-1 text-[15px] text-[#7B7B7C] font-[600]',
+                      'mt-1 text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
                     )}>
                     {`유통기한 12시간 남았을 때 : 10% 추가 할인`}
                   </Text>
                   <Text
                     style={tailwind(
-                      'mt-1 text-[15px] text-[#7B7B7C] font-[600]',
+                      'mt-1 text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
                     )}>
                     {`(사전 고지를 통해 시간과 할인율은 변동될 수 있습니다)`}
                   </Text>

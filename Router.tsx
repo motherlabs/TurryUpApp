@@ -43,6 +43,7 @@ import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import TermsOfService from './src/pages/TermsOfService';
 import PrivacyPolicy from './src/pages/PrivacyPolicy';
+import InformationInput from './src/pages/InformationInput';
 
 export type RootStackParamList = {
   Admin: undefined;
@@ -66,6 +67,7 @@ export type RootStackParamList = {
   PartnerLogin: undefined;
   PrivacyPolicy: undefined;
   TermsOfService: undefined;
+  InformationInput: undefined;
 };
 
 export const RouterList = {
@@ -90,6 +92,7 @@ export const RouterList = {
   PartnerLogin: 'PartnerLogin',
   PrivacyPolicy: 'PrivacyPolicy',
   TermsOfService: 'TermsOfService',
+  InformationInput: 'InformationInput',
 } as const;
 export type RouterList = typeof RouterList[keyof typeof RouterList];
 
@@ -422,6 +425,11 @@ export default function Router() {
               name={RouterList.Payment}
               options={{headerShown: false, animation: 'slide_from_bottom'}}>
               {_ => <Payment />}
+            </Stack.Screen>
+            <Stack.Screen
+              name={RouterList.InformationInput}
+              options={{headerShown: false, animation: 'slide_from_bottom'}}>
+              {_ => <InformationInput />}
             </Stack.Screen>
             <Stack.Screen
               name={RouterList.Start}

@@ -29,7 +29,9 @@ export default function TermsOfService() {
           style={tailwind(
             'flex flex-col h-[56px]  items-center justify-center',
           )}>
-          <Text style={tailwind(' text-[21px] font-[600]')}>이용약관</Text>
+          <Text style={tailwind(' text-[21px] leading-[24px] font-[600]')}>
+            이용약관
+          </Text>
           <Pressable
             onPress={() => {
               navigation.goBack();
@@ -50,7 +52,7 @@ export default function TermsOfService() {
         ]}>
         <ScrollView style={tailwind('bg-background')}>
           <View style={tailwind('h-full bg-background px-4 py-5')}>
-            <Text style={tailwind('text-[16px]')}>{`안녕하세요?
+            <Text style={tailwind('text-[16px] leading-[19px]')}>{`안녕하세요?
 
 (주)마더랩스 덕템 서비스를 이용해 주셔서 감사합니다. 지역 정보 모바일 서비스를 제공하는 덕템이 준비한 약관을 읽어주셔서 감사합니다.
 

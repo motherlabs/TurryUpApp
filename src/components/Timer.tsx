@@ -35,9 +35,10 @@ export default function Timer({setIsTimeOut, timer}: Props) {
 
   return (
     <View>
-      <Text style={tailwind('text-[#7B7B7C] text-[14px]')}>{`${min}:${sec
-        .toString()
-        .padStart(2, '0')}`}</Text>
+      <Text
+        style={tailwind(
+          'text-[#7B7B7C] text-[14px] leading-[17px]',
+        )}>{`${min}:${sec.toString().padStart(2, '0')}`}</Text>
     </View>
   );
 }

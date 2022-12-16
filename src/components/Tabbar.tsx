@@ -77,7 +77,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
               />
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.BUYERHOME
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'
@@ -102,7 +102,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
 
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.BUYERBASKET
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'
@@ -149,7 +149,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
 
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.MYINFO
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'
@@ -178,7 +178,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
               />
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.SALLERHOME
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'
@@ -214,7 +214,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
 
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.SALLERADD
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'
@@ -247,7 +247,7 @@ export default function Tabbar({type, homeScrollRef}: Props) {
 
               <Text
                 style={tailwind(
-                  `font-[500] text-[14px] mt-[5px] ${
+                  `font-[500] text-[14px] leading-[17px] mt-[5px] ${
                     type !== TabbarType.MYINFO
                       ? 'text-[#D3D3D3]'
                       : 'text-[#1C1C1E]'

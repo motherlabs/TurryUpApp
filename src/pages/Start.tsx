@@ -72,14 +72,14 @@ export default function Start() {
       </View> */}
           <View
             style={tailwind(
-              'absolute top-[30%] w-full flex flex-col items-center',
+              'absolute top-[25%] w-full flex flex-col items-center',
             )}>
             <StartIcon />
           </View>
           <View
             style={tailwind(
               `absolute ${
-                Platform.OS === 'android' ? 'bottom-[6%]' : 'bottom-[6%]'
+                Platform.OS === 'android' ? 'bottom-[3%]' : 'bottom-[3%]'
               }  z-50 w-full flex flex-col items-center`,
             )}>
             <FadeInOut visible={visible} scale={true}>
@@ -92,7 +92,10 @@ export default function Start() {
               style={tailwind(
                 'w-[315px] bg-primary h-[52px] mt-1 mb-[7px] rounded-[4px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-black font-[600] text-[16px]')}>
+              <Text
+                style={tailwind(
+                  'text-black font-[600] text-[16px] leading-[19px]',
+                )}>
                 시작하기
               </Text>
             </Pressable>
@@ -100,7 +103,10 @@ export default function Start() {
               style={tailwind(
                 'flex flex-row justify-center w-full h-[52px]  items-center',
               )}>
-              <Text style={tailwind('text-[#848688] font-[400] text-[16px]')}>
+              <Text
+                style={tailwind(
+                  'text-[#848688] font-[400] text-[16px] leading-[19px]',
+                )}>
                 파트너 이신가요?
               </Text>
               <Pressable

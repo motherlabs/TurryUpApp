@@ -121,7 +121,9 @@ export default function StoreInfo({setStatusbarColor}: Props) {
             )}>
             <BackIcon width={21} height={21} fill={'black'} />
           </Pressable>
-          <Text style={tailwind('text-[18px] font-[600]')}>매장 정보</Text>
+          <Text style={tailwind('text-[18px] leading-[21px] font-[600]')}>
+            매장 정보
+          </Text>
         </View>
         <View style={tailwind('bg-gray-500 h-[252px] w-full')}>
           {/*@ts-ignore */}
@@ -160,185 +162,229 @@ export default function StoreInfo({setStatusbarColor}: Props) {
         <View style={tailwind('py-[18px] px-[30px]')}>
           <View style={tailwind('flex flex-row items-center mb-2')}>
             <Text
-              style={tailwind('text-[23px] font-[700] text-[#1C1C1E] mr-1')}>
+              style={tailwind(
+                'text-[23px] leading-[26px] font-[700] text-[#1C1C1E] mr-1',
+              )}>
               {name}
             </Text>
             {name !== '' &&
             getBusinessHours(dayOffString, businessHours) === '영업중' ? (
               <View style={tailwind('bg-light rounded-[24px] px-2 py-1')}>
-                <Text style={tailwind('text-dark text-[13px] font-[600]')}>
+                <Text
+                  style={tailwind(
+                    'text-dark text-[13px] leading-[16px] font-[600]',
+                  )}>
                   영업중
                 </Text>
               </View>
             ) : (
               <View style={tailwind('bg-[#F4F4F4] rounded-[24px] px-2 py-1')}>
-                <Text style={tailwind('text-[#A7A7A8] text-[13px] font-[600]')}>
+                <Text
+                  style={tailwind(
+                    'text-[#A7A7A8] text-[13px] leading-[16px] font-[600]',
+                  )}>
                   영업종료
                 </Text>
               </View>
             )}
           </View>
-          <Text style={tailwind('text-[17px] text-[#4F4F51] font-[400] mb-2')}>
+          <Text
+            style={tailwind(
+              'text-[17px] leading-[20px] text-[#4F4F51] font-[400] mb-2',
+            )}>
             {storeAddress}
           </Text>
           <View style={tailwind('flex flex-row items-center mb-2')}>
-            <Text style={tailwind('text-[#4F4F51] text-[17px] font-[600]')}>
+            <Text
+              style={tailwind(
+                'text-[#4F4F51] text-[17px] leading-[20px] font-[600]',
+              )}>
               전화:
             </Text>
             <Text
-              style={tailwind('ml-1 text-[#4F4F51] text-[17px] font-[400]')}>
+              style={tailwind(
+                'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+              )}>
               {storeNumber}
             </Text>
           </View>
           <View style={tailwind('flex flex-row items-center mb-2')}>
-            <Text style={tailwind('text-[#4F4F51] text-[17px] font-[600]')}>
+            <Text
+              style={tailwind(
+                'text-[#4F4F51] text-[17px] leading-[20px] font-[600]',
+              )}>
               픽업:
             </Text>
             <Text
-              style={tailwind('ml-1 text-[#4F4F51] text-[17px] font-[400]')}>
+              style={tailwind(
+                'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+              )}>
               {picupZone}
             </Text>
           </View>
           <View style={tailwind('flex flex-col mb-[32px]')}>
             <Text
-              style={tailwind('text-[#4F4F51] text-[17px] font-[600] mb-1')}>
+              style={tailwind(
+                'text-[#4F4F51] text-[17px] leading-[20px] font-[600] mb-1',
+              )}>
               픽업 가능시간
             </Text>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 월:
               </Text>
               {dayOffString.includes('1') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {mon}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 화:
               </Text>
               {dayOffString.includes('2') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {tue}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 수:
               </Text>
               {dayOffString.includes('3') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {wed}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 목:
               </Text>
               {dayOffString.includes('4') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {thu}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 금:
               </Text>
               {dayOffString.includes('5') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {fri}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center mb-1')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 토:
               </Text>
               {dayOffString.includes('6') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {sat}
                 </Text>
               )}
             </View>
             <View style={tailwind('flex flex-row items-center')}>
-              <Text style={tailwind('text-[#4F4F51] text-[17px] font-[400]')}>
+              <Text
+                style={tailwind(
+                  'text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
+                )}>
                 일:
               </Text>
               {dayOffString.includes('0') ? (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   휴무
                 </Text>
               ) : (
                 <Text
                   style={tailwind(
-                    'ml-1 text-[#4F4F51] text-[17px] font-[400]',
+                    'ml-1 text-[#4F4F51] text-[17px] leading-[20px] font-[400]',
                   )}>
                   {sun}
                 </Text>
@@ -353,7 +399,10 @@ export default function StoreInfo({setStatusbarColor}: Props) {
             onPress={() => {
               Linking.openURL(`tel:${storeNumber}`);
             }}>
-            <Text style={tailwind('text-[19px] text-black font-[600]')}>
+            <Text
+              style={tailwind(
+                'text-[19px] leading-[22px] text-black font-[600]',
+              )}>
               전화하기
             </Text>
           </Pressable>

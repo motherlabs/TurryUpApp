@@ -37,6 +37,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import Carousel from 'react-native-snap-carousel';
 import BackIcon from '../assets/svg/back.svg';
 import ArrowBottomIcon from '../assets/svg/arrow-bottom.svg';
+import infoAPI from '../api/infoAPI';
 
 /**
  * 위도경도 계산
@@ -226,12 +227,17 @@ export default function LocationSet() {
         type: address.type,
       });
       dispatch(addressSlice.actions.setAddress(response.data));
-      dispatch(loadingSlice.actions.setLoading(true));
-      navigation.reset({routes: [{name: RouterList.Home}]});
+      const verifyInfo = await infoAPI.verify();
+      dispatch(loadingSlice.actions.setLoading(false));
+      if (verifyInfo.data) {
+        navigation.reset({routes: [{name: RouterList.Home}]});
+      } else {
+        navigation.navigate(RouterList.InformationInput);
+      }
     } catch (e) {
       console.log(e);
     }
-  }, [address, dispatch, navigation]);
+  }, [dispatch, navigation, address]);
 
   const resetAddress = useCallback(async () => {
     dispatch(loadingSlice.actions.setLoading(true));
@@ -287,7 +293,9 @@ export default function LocationSet() {
               {address.name ? (
                 <View style={tailwind('flex flex-row items-center')}>
                   <Text
-                    style={tailwind('text-[22px] font-[600] text-black mr-2')}>
+                    style={tailwind(
+                      'text-[22px] leading-[25px] font-[600] text-black mr-2',
+                    )}>
                     {address.type === 'MYHOME' ? '우리집' : address.name}
                   </Text>
                   <ArrowBottomIcon width={10} height={10} />
@@ -295,7 +303,9 @@ export default function LocationSet() {
               ) : (
                 <View style={tailwind('flex flex-row items-center')}>
                   <Text
-                    style={tailwind('text-[22px] font-[600] text-black mr-2')}>
+                    style={tailwind(
+                      'text-[22px] leading-[25px] font-[600] text-black mr-2',
+                    )}>
                     주소설정
                   </Text>
 
@@ -373,14 +383,14 @@ export default function LocationSet() {
             </NaverMapView>
           </View>
 
-          <View style={tailwind('h-[300px] rounded-t-[16px] bg-white ')}>
+          <View style={tailwind('h-[300px] rounded-t-[16px] bg-background ')}>
             <View
               style={tailwind(
                 'flex flex-col items-center px-[23px] mt-[30px]',
               )}>
               <Text
                 style={tailwind(
-                  'text-[17px] text-[#1C1C1E] font-[600]',
+                  'text-[17px] leading-[20px] text-[#1C1C1E] font-[600]',
                 )}>{`선택한 범위 내의 할인상품을 볼 수 있어요!`}</Text>
               <View style={tailwind('flex flex-row items-center mt-4')}>
                 <Slider
@@ -392,16 +402,20 @@ export default function LocationSet() {
                         range: +convertRange(value),
                       }),
                     );
+                    console.log('check3');
                   }}
                   maximumValue={3}
                   value={address.range}
+                  renderToHardwareTextureAndroid={true}
                   minimumTrackTintColor="#FF521C"
                   maximumTrackTintColor="#E5E5E5"
-                  thumbTintColor="#FFFFFF"
+                  thumbTintColor="white"
                 />
                 <View style={tailwind('ml-2 w-[50px]')}>
                   <Text
-                    style={tailwind('text-[14px] font-[500] text-[#909090]')}>
+                    style={tailwind(
+                      'text-[14px] leading-[17px] font-[500] text-[#909090]',
+                    )}>
                     {`${convertRange(address.range)}`}
                     km
                   </Text>
@@ -435,7 +449,7 @@ export default function LocationSet() {
                 <CurrentLocationIcon />
                 <Text
                   style={tailwind(
-                    'text-[13px] font-[600] ml-1 text-primary_og',
+                    'text-[13px] leading-[16px] font-[600] ml-1 text-primary_og',
                   )}>
                   현재위치로 찾기
                 </Text>
@@ -450,7 +464,10 @@ export default function LocationSet() {
                     address.name ? 'bg-primary' : 'bg-gray-200'
                   }  flex flex-col items-center justify-center`,
                 )}>
-                <Text style={tailwind('text-[17px] font-[600] text-black')}>
+                <Text
+                  style={tailwind(
+                    'text-[17px] leading-[20px] font-[600] text-black',
+                  )}>
                   시작하기
                 </Text>
               </Pressable>
@@ -465,15 +482,17 @@ export default function LocationSet() {
           )}
         />
       )}
+
       <BottomSheet
         ref={bottomSheetRef}
         renderContent={() => (
           <View style={tailwind('h-full bg-gray-300 rounded-t-2xl')}>
             <Carousel
+              keyboardShouldPersistTaps={'handled'}
               ref={carouselRef}
               data={carousel}
               renderItem={({item}: {item: number}) => (
-                <View>
+                <View style={tailwind('w-full h-full relative')}>
                   {item === 0 ? (
                     <View>
                       <View
@@ -490,7 +509,10 @@ export default function LocationSet() {
                         style={tailwind(
                           'w-full h-[48px] flex flex-col items-center justify-center bg-white relative',
                         )}>
-                        <Text style={tailwind('text-[20px] font-[700]')}>
+                        <Text
+                          style={tailwind(
+                            'text-[20px] leading-[23px] font-[700]',
+                          )}>
                           주소설정
                         </Text>
                         {isModified ? (
@@ -501,7 +523,8 @@ export default function LocationSet() {
                             style={tailwind(
                               'absolute top-0 right-4 h-[48px] flex flex-col justify-center items-center w-[60px]',
                             )}>
-                            <Text style={tailwind(' text-[17px]')}>
+                            <Text
+                              style={tailwind(' text-[17px] leading-[20px]')}>
                               편집취소
                             </Text>
                           </Pressable>
@@ -514,7 +537,10 @@ export default function LocationSet() {
                             style={tailwind(
                               'absolute top-0 right-0 h-[48px] flex flex-col justify-center items-center w-[60px]',
                             )}>
-                            <Text style={tailwind(' text-[17px]')}>편집</Text>
+                            <Text
+                              style={tailwind(' text-[17px] leading-[20px]')}>
+                              편집
+                            </Text>
                           </Pressable>
                         )}
                       </View>
@@ -601,13 +627,13 @@ export default function LocationSet() {
                                   <View>
                                     <Text
                                       style={tailwind(
-                                        'text-[16px] font-[700]',
+                                        'text-[16px] leading-[19px] font-[700]',
                                       )}>
                                       우리집
                                     </Text>
                                     <Text
                                       style={tailwind(
-                                        'text-[15px] text-gray-400 mt-1 font-[600]',
+                                        'text-[15px] leading-[18px] text-gray-400 mt-1 font-[600]',
                                       )}>
                                       {address.name}
                                     </Text>
@@ -629,13 +655,13 @@ export default function LocationSet() {
                                   <View>
                                     <Text
                                       style={tailwind(
-                                        'text-[16px] font-[700]',
+                                        'text-[16px] leading-[19px] font-[700]',
                                       )}>
                                       우리집
                                     </Text>
                                     <Text
                                       style={tailwind(
-                                        'text-[15px] text-gray-400 mt-1 font-[600]',
+                                        'text-[15px] leading-[18px] text-gray-400 mt-1 font-[600]',
                                       )}>
                                       {
                                         addressList.filter(
@@ -661,7 +687,9 @@ export default function LocationSet() {
                                 </View>
                               ) : (
                                 <Text
-                                  style={tailwind('text-[16px] font-[700]')}>
+                                  style={tailwind(
+                                    'text-[16px] leading-[19px] font-[700]',
+                                  )}>
                                   우리집 등록
                                 </Text>
                               )}
@@ -714,7 +742,9 @@ export default function LocationSet() {
                                     'w-[80%] h-[70px] flex flex-col items-start justify-center border-b border-gray-200',
                                   )}>
                                   <Text
-                                    style={tailwind('text-[16px] font-[700]')}>
+                                    style={tailwind(
+                                      'text-[16px] leading-[19px] font-[700]',
+                                    )}>
                                     {address.name}
                                   </Text>
                                 </View>
@@ -804,7 +834,7 @@ export default function LocationSet() {
                                     )}>
                                     <Text
                                       style={tailwind(
-                                        'text-[16px] font-[700]',
+                                        'text-[16px] leading-[19px] font-[700]',
                                       )}>
                                       {v.name}
                                     </Text>
@@ -831,7 +861,7 @@ export default function LocationSet() {
                       </View>
                     </View>
                   ) : (
-                    <View>
+                    <View style={tailwind(' h-full w-full')}>
                       <View
                         style={tailwind(
                           'bg-white h-[24px] pt-[12px] flex flex-col items-center justify-start',
@@ -851,7 +881,10 @@ export default function LocationSet() {
                           )}>
                           <BackIcon width={21} height={21} fill={'black'} />
                         </Pressable>
-                        <Text style={tailwind('text-[20px] font-[700]')}>
+                        <Text
+                          style={tailwind(
+                            'text-[20px] leading-[23px] font-[700]',
+                          )}>
                           주소검색
                         </Text>
                       </View>
@@ -864,7 +897,9 @@ export default function LocationSet() {
                         onSelected={data => {
                           changeLocationHandler(data.address);
                           dispatch(
-                            addressSlice.actions.setName({name: data.address}),
+                            addressSlice.actions.setName({
+                              name: data.address,
+                            }),
                           );
                           if (isMyHome) {
                             dispatch(addressSlice.actions.setType('MYHOME'));

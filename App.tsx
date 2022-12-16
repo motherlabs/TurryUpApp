@@ -7,6 +7,27 @@ import utilities from './tailwind.json';
 import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import CodePush, {CodePushOptions} from 'react-native-code-push';
+import 'react-native-gesture-handler';
+// import {Text, TextInput} from 'react-native';
+
+// interface TextWithDefaultProps extends Text {
+//   defaultProps?: {allowFontScaling?: boolean};
+// }
+
+// interface TextInputWithDefaultProps extends TextInput {
+//   defaultProps?: {allowFontScaling?: boolean};
+// }
+
+// (Text as unknown as TextWithDefaultProps).defaultProps =
+//   (Text as unknown as TextWithDefaultProps).defaultProps || {};
+// (Text as unknown as TextWithDefaultProps).defaultProps!.allowFontScaling =
+//   false;
+
+// (TextInput as unknown as TextInputWithDefaultProps).defaultProps =
+//   (TextInput as unknown as TextInputWithDefaultProps).defaultProps || {};
+// (
+//   TextInput as unknown as TextInputWithDefaultProps
+// ).defaultProps!.allowFontScaling = false;
 
 // messaging().setBackgroundMessageHandler(async remoteMessage => {
 //   console.log('Message handled in the background!', remoteMessage);
@@ -166,6 +187,7 @@ const App = () => {
   return (
     // <SafeAreaView style={backgroundStyle}>
     //   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+
     <>
       <Provider store={store}>
         <TailwindProvider utilities={utilities}>
@@ -176,5 +198,4 @@ const App = () => {
     // </SafeAreaView>
   );
 };
-
 export default CodePush(codePushOptions)(App);

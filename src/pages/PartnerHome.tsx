@@ -101,9 +101,10 @@ export default function PartnerHome() {
             style={tailwind(
               'h-[52px] flex flex-col items-center justify-center border-b border-[#EAEAEA]',
             )}>
-            <Text style={tailwind('text-[21px] font-[600]')}>{`${formatMonthDay(
-              date,
-            )} 판매 상품`}</Text>
+            <Text
+              style={tailwind(
+                'text-[21px] leading-[24px] font-[600]',
+              )}>{`${formatMonthDay(date)} 판매 상품`}</Text>
           </View>
 
           <View
@@ -121,13 +122,14 @@ export default function PartnerHome() {
                 style={tailwind(
                   `${
                     filter === '판매중' ? 'text-primary_og' : 'text-[#888888]'
-                  } text-[14px] font-[400]`,
+                  } text-[14px] leading-[17px] font-[400]`,
                 )}>
                 판매중
               </Text>
-              <Text style={tailwind('text-[20px] font-[700] mt-2')}>{`${
-                store.Goods.filter(v => v.quantity > 0).length
-              }`}</Text>
+              <Text
+                style={tailwind(
+                  'text-[20px] leading-[23px] font-[700] mt-2',
+                )}>{`${store.Goods.filter(v => v.quantity > 0).length}`}</Text>
             </Pressable>
             <Pressable
               onPress={() => {
@@ -142,11 +144,14 @@ export default function PartnerHome() {
                     filter === '픽업 대기중'
                       ? 'text-primary_og'
                       : 'text-[#888888]'
-                  } text-[14px] font-[400]`,
+                  } text-[14px] leading-[17px] font-[400]`,
                 )}>
                 픽업 대기중
               </Text>
-              <Text style={tailwind('text-[20px] font-[700] mt-2')}>{`${
+              <Text
+                style={tailwind(
+                  'text-[20px] leading-[23px] font-[700] mt-2',
+                )}>{`${
                 store.Order.filter(v => v.status === '픽업 대기중').length
               }`}</Text>
             </Pressable>
@@ -163,11 +168,12 @@ export default function PartnerHome() {
                     filter === '픽업 완료'
                       ? 'text-primary_og'
                       : 'text-[#888888]'
-                  } text-[14px] font-[400]`,
+                  } text-[14px] leading-[17px] font-[400]`,
                 )}>
                 픽업 완료
               </Text>
-              <Text style={tailwind('text-[20px] font-[700] mt-2')}>
+              <Text
+                style={tailwind('text-[20px] leading-[23px] font-[700] mt-2')}>
                 {`${store.Order.filter(v => v.status === '픽업 완료').length}`}
               </Text>
             </Pressable>
@@ -180,11 +186,12 @@ export default function PartnerHome() {
                 style={tailwind(
                   `${
                     filter === '품절' ? 'text-primary_og' : 'text-[#888888]'
-                  } text-[14px] font-[400]`,
+                  } text-[14px] leading-[17px] font-[400]`,
                 )}>
                 품절
               </Text>
-              <Text style={tailwind('text-[20px] font-[700] mt-2')}>
+              <Text
+                style={tailwind('text-[20px] leading-[23px] font-[700] mt-2')}>
                 {`${store.Goods.filter(v => v.quantity === 0).length}`}
               </Text>
             </Pressable>
@@ -221,7 +228,7 @@ export default function PartnerHome() {
                               )}>
                               <Text
                                 style={tailwind(
-                                  'text-[#1383EA] text-[13px] font-[600]',
+                                  'text-[#1383EA] text-[13px] leading-[16px] font-[600]',
                                 )}>
                                 판매중
                               </Text>
@@ -229,13 +236,15 @@ export default function PartnerHome() {
                             <Text
                               numberOfLines={1}
                               ellipsizeMode="tail"
-                              style={tailwind('text-[19px] font-[700]')}>
+                              style={tailwind(
+                                'text-[19px] leading-[22px] font-[700]',
+                              )}>
                               {v.name}
                             </Text>
                           </View>
                           <Text
                             style={tailwind(
-                              'text-[15px] font-[400] text-[#39393B]',
+                              'text-[15px] leading-[18px] font-[400] text-[#39393B]',
                             )}>{`유통기한 ${formatKR(
                             new Date(v.expiryDate),
                           )}`}</Text>
@@ -244,17 +253,21 @@ export default function PartnerHome() {
                               textDecorationLine: 'line-through',
                               textDecorationStyle: 'solid',
                               fontSize: 14,
+                              lineHeight: 17,
                               color: '#A7A7A8',
                             }}>
                             {`${converterPrice(v.originPrice.toString())}원`}
                           </Text>
                           <View style={tailwind('flex flex-row items-center')}>
-                            <Text style={tailwind('text-[17px] font-[700]')}>
+                            <Text
+                              style={tailwind(
+                                'text-[17px] leading-[20px] font-[700]',
+                              )}>
                               {`${converterPrice(v.salePrice.toString())}원`}
                             </Text>
                             <Text
                               style={tailwind(
-                                'text-[17px] ml-2 font-[700] text-[#FF490F]',
+                                'text-[17px] leading-[20px] ml-2 font-[700] text-[#FF490F]',
                               )}>
                               {`${v.discount + v.additionalDiscount}%`}
                             </Text>
@@ -270,7 +283,10 @@ export default function PartnerHome() {
                           });
                         }}
                         style={tailwind('flex flex-row items-center')}>
-                        <Text style={tailwind('text-[17px] font-[500]')}>
+                        <Text
+                          style={tailwind(
+                            'text-[17px] leading-[20px] font-[500]',
+                          )}>
                           상품 수정
                         </Text>
                         <ArrowRight12 />
@@ -295,7 +311,7 @@ export default function PartnerHome() {
                           }}>
                           <Text
                             style={tailwind(
-                              'font-[400] text-[20px]',
+                              'font-[400] text-[20px] leading-[23px]',
                             )}>{`${v.payment.user.phoneNumber.substring(
                             0,
                             3,
@@ -326,7 +342,7 @@ export default function PartnerHome() {
                                 )}>
                                 <Text
                                   style={tailwind(
-                                    'text-[#0BAB5E] text-[13px] font-[600]',
+                                    'text-[#0BAB5E] text-[13px] leading-[16px] font-[600]',
                                   )}>
                                   픽업 대기중
                                 </Text>
@@ -334,13 +350,15 @@ export default function PartnerHome() {
                               <Text
                                 numberOfLines={1}
                                 ellipsizeMode="tail"
-                                style={tailwind('text-[19px] font-[700]')}>
+                                style={tailwind(
+                                  'text-[19px] leading-[22px] font-[700]',
+                                )}>
                                 {v.goods.name}
                               </Text>
                             </View>
                             <Text
                               style={tailwind(
-                                'text-[15px] font-[400] text-[#39393B]',
+                                'text-[15px] leading-[18px] font-[400] text-[#39393B]',
                               )}>{`유통기한 ${formatKR(
                               v.goods.expiryDate,
                             )}`}</Text>
@@ -357,18 +375,21 @@ export default function PartnerHome() {
                             </Text> */}
                             <Text
                               style={tailwind(
-                                'font-[400] text-[15px]  text-[#39393B]',
+                                'font-[400] text-[15px] leading-[18px]  text-[#39393B]',
                               )}>{`수량: ${v.quantity}개`}</Text>
                             <View
                               style={tailwind('flex flex-row items-center')}>
-                              <Text style={tailwind('text-[17px] font-[700]')}>
+                              <Text
+                                style={tailwind(
+                                  'text-[17px] leading-[20px] font-[700]',
+                                )}>
                                 {`${converterPrice(
                                   (v.goods.salePrice * v.quantity).toString(),
                                 )}원`}
                               </Text>
                               {/* <Text
                                 style={tailwind(
-                                  'text-[14px] ml-2 font-[700] text-[#FF490F]',
+                                  'text-[14px] leading-[17px] ml-2 font-[700] text-[#FF490F]',
                                 )}>
                                 {`${v.goods.discount}%`}
                               </Text> */}
@@ -392,7 +413,10 @@ export default function PartnerHome() {
                           ]);
                         }}
                         style={tailwind('flex flex-row items-center')}>
-                        <Text style={tailwind('text-[17px] font-[500]')}>
+                        <Text
+                          style={tailwind(
+                            'text-[17px] leading-[20px] font-[500]',
+                          )}>
                           픽업 완료
                         </Text>
                         <ArrowRight12 />
@@ -418,7 +442,7 @@ export default function PartnerHome() {
                           }}>
                           <Text
                             style={tailwind(
-                              'font-[400] text-[20px]',
+                              'font-[400] text-[20px] leading-[23px]',
                             )}>{`${v.payment.user.phoneNumber.substring(
                             0,
                             3,
@@ -449,7 +473,7 @@ export default function PartnerHome() {
                                 )}>
                                 <Text
                                   style={tailwind(
-                                    'text-[#7B7B7C] text-[13px] font-[600]',
+                                    'text-[#7B7B7C] text-[13px] leading-[16px] font-[600]',
                                   )}>
                                   픽업 완료
                                 </Text>
@@ -457,13 +481,15 @@ export default function PartnerHome() {
                               <Text
                                 numberOfLines={1}
                                 ellipsizeMode="tail"
-                                style={tailwind('text-[19px] font-[700]')}>
+                                style={tailwind(
+                                  'text-[19px] leading-[22px] font-[700]',
+                                )}>
                                 {v.goods.name}
                               </Text>
                             </View>
                             <Text
                               style={tailwind(
-                                'text-[15px] font-[400] text-[#39393B]',
+                                'text-[15px] leading-[18px] font-[400] text-[#39393B]',
                               )}>{`유통기한 ${formatKR(
                               v.goods.expiryDate,
                             )}`}</Text>
@@ -480,19 +506,22 @@ export default function PartnerHome() {
                             </Text> */}
                             <Text
                               style={tailwind(
-                                'font-[400] text-[12px]  text-[#39393B]',
+                                'font-[400] text-[12px] leading-[15pxpx]  text-[#39393B]',
                               )}>{`수량: ${v.quantity}개`}</Text>
 
                             <View
                               style={tailwind('flex flex-row items-center')}>
-                              <Text style={tailwind('text-[17px] font-[700]')}>
+                              <Text
+                                style={tailwind(
+                                  'text-[17px] leading-[20px] font-[700]',
+                                )}>
                                 {`${converterPrice(
                                   (v.goods.salePrice * v.quantity).toString(),
                                 )}원`}
                               </Text>
                               {/* <Text
                                 style={tailwind(
-                                  'text-[14px] ml-2 font-[700] text-[#FF490F]',
+                                  'text-[14px] leading-[17px] ml-2 font-[700] text-[#FF490F]',
                                 )}>
                                 {`${v.goods.discount}%`}
                               </Text> */}
@@ -527,7 +556,7 @@ export default function PartnerHome() {
                               )}>
                               <Text
                                 style={tailwind(
-                                  'text-[#7B7B7C] text-[13px] font-[600]',
+                                  'text-[#7B7B7C] text-[13px] leading-[16px] font-[600]',
                                 )}>
                                 품절
                               </Text>
@@ -535,13 +564,15 @@ export default function PartnerHome() {
                             <Text
                               numberOfLines={1}
                               ellipsizeMode="tail"
-                              style={tailwind('text-[19px] font-[700]')}>
+                              style={tailwind(
+                                'text-[19px] leading-[22px] font-[700]',
+                              )}>
                               {v.name}
                             </Text>
                           </View>
                           <Text
                             style={tailwind(
-                              'text-[15px] font-[400] text-[#39393B]',
+                              'text-[15px] leading-[18px] font-[400] text-[#39393B]',
                             )}>{`유통기한 ${formatKR(
                             new Date(v.expiryDate),
                           )}`}</Text>
@@ -550,17 +581,21 @@ export default function PartnerHome() {
                               textDecorationLine: 'line-through',
                               textDecorationStyle: 'solid',
                               fontSize: 11,
+                              lineHeight: 14,
                               color: '#A7A7A8',
                             }}>
                             {`${converterPrice(v.originPrice.toString())}원`}
                           </Text>
                           <View style={tailwind('flex flex-row items-center')}>
-                            <Text style={tailwind('text-[17px] font-[700]')}>
+                            <Text
+                              style={tailwind(
+                                'text-[17px] leading-[20px] font-[700]',
+                              )}>
                               {`${converterPrice(v.salePrice.toString())}원`}
                             </Text>
                             <Text
                               style={tailwind(
-                                'text-[17px] ml-2 font-[700] text-[#FF490F]',
+                                'text-[17px] leading-[20px] ml-2 font-[700] text-[#FF490F]',
                               )}>
                               {`${v.discount + v.additionalDiscount}%`}
                             </Text>
@@ -576,7 +611,10 @@ export default function PartnerHome() {
                           });
                         }}
                         style={tailwind('flex flex-row items-center')}>
-                        <Text style={tailwind('text-[17px] font-[500]')}>
+                        <Text
+                          style={tailwind(
+                            'text-[17px] leading-[20px] font-[500]',
+                          )}>
                           재등록
                         </Text>
                         <ArrowRight12 />
@@ -593,9 +631,10 @@ export default function PartnerHome() {
             style={tailwind(
               'h-[52px] flex flex-col items-center justify-center border-b border-[#EAEAEA]',
             )}>
-            <Text style={tailwind('text-[21px] font-[600]')}>{`${formatMonthDay(
-              date,
-            )} 판매 상품`}</Text>
+            <Text
+              style={tailwind(
+                'text-[21px] leading-[24px] font-[600]',
+              )}>{`${formatMonthDay(date)} 판매 상품`}</Text>
           </View>
           <View
             style={[
@@ -611,10 +650,16 @@ export default function PartnerHome() {
               style={tailwind(
                 'absolute top-[40%] right-0 left-0 w-full flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-[17px] font-[400] text-[#A7A7A8]')}>
+              <Text
+                style={tailwind(
+                  'text-[17px] leading-[20px] font-[400] text-[#A7A7A8]',
+                )}>
                 등록된 상품이 없습니다.
               </Text>
-              <Text style={tailwind('text-[17px] font-[400] text-[#A7A7A8]')}>
+              <Text
+                style={tailwind(
+                  'text-[17px] leading-[20px] font-[400] text-[#A7A7A8]',
+                )}>
                 상품을 등록해 보세요!
               </Text>
             </View>
@@ -640,10 +685,15 @@ export default function PartnerHome() {
                   'flex flex-row items-center justify-center w-full h-[52px] rounded-[4px] bg-primary',
                 )}>
                 <Text
-                  style={tailwind('text-black text-[19px] font-[600] mr-1')}>
+                  style={tailwind(
+                    'text-black text-[19px] leading-[22px] font-[600] mr-1',
+                  )}>
                   +
                 </Text>
-                <Text style={tailwind('text-black text-[19px] font-[600]')}>
+                <Text
+                  style={tailwind(
+                    'text-black text-[19px] leading-[22px] font-[600]',
+                  )}>
                   상품 등록 하기
                 </Text>
               </Pressable>

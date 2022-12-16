@@ -65,6 +65,7 @@ export default function MyInfo() {
           });
         }
       } else {
+        dispatch(storeSlice.actions.setName(''));
         console.log('store not found');
       }
     };
@@ -126,19 +127,28 @@ export default function MyInfo() {
         {user.state === UserState.BUYER ? (
           <View style={tailwind(' h-full bg-background relative')}>
             <View style={tailwind('px-5 flex flex-row  items-center mb-4')}>
-              {/* <Text style={tailwind(' text-[26px] font-[700]')}>
+              {/* <Text style={tailwind(' text-[26px] leading-[29px] font-[700]')}>
                 {`${user.phoneNumber.substring(
                   0,
                   3,
                 )}-${user.phoneNumber.substring(3, 7)}-`}
               </Text> */}
-              <Text style={tailwind(' text-[26px] font-[700] text-primary_og')}>
+              <Text
+                style={tailwind(
+                  ' text-[26px] leading-[29px] font-[700] text-primary_og',
+                )}>
                 {`${user.phoneNumber.substring(7, 11)}`}
               </Text>
-              <Text style={tailwind(' text-[26px] font-[700] ml-1')}>님</Text>
+              <Text
+                style={tailwind(' text-[26px] leading-[29px] font-[700] ml-1')}>
+                님
+              </Text>
             </View>
             <View style={tailwind('px-5')}>
-              <Text style={tailwind(' text-[17px] font-[400] text-[#7B7B7C]')}>
+              <Text
+                style={tailwind(
+                  ' text-[17px] leading-[20px] font-[400] text-[#7B7B7C]',
+                )}>
                 휴대폰 뒷번호 4자리 확인 후 상품을 픽업해 주세요.
               </Text>
             </View>
@@ -150,13 +160,17 @@ export default function MyInfo() {
                 )}>
                 <View>
                   <Text
-                    style={tailwind('text-[21px] font-[600] text-[#1C1C1E]')}>
+                    style={tailwind(
+                      'text-[21px] leading-[24px] font-[600] text-[#1C1C1E]',
+                    )}>
                     이번달 절약한 금액
                   </Text>
                 </View>
                 <View>
                   <Text
-                    style={tailwind('font-[700] text-[21px] text-[#1C1C1E]')}>
+                    style={tailwind(
+                      'font-[700] text-[21px] leading-[24px] text-[#1C1C1E]',
+                    )}>
                     {converterPrice(`${monthlySaving} 원`)}
                   </Text>
                 </View>
@@ -166,7 +180,7 @@ export default function MyInfo() {
               <View style={tailwind('px-5 mb-[32px]')}>
                 <Text
                   style={tailwind(
-                    'text-[19px] text-[#1C1C1E] font-[600] mb-[18px]',
+                    'text-[19px] leading-[22px] text-[#1C1C1E] font-[600] mb-[18px]',
                   )}>
                   구매내역
                 </Text>
@@ -193,7 +207,7 @@ export default function MyInfo() {
                             )}>
                             <Text
                               style={tailwind(
-                                'text-[#7B7B7C] text-[13px] font-[600]',
+                                'text-[#7B7B7C] text-[13px] leading-[16px] font-[600]',
                               )}>
                               {v.status}
                             </Text>
@@ -205,7 +219,7 @@ export default function MyInfo() {
                             )}>
                             <Text
                               style={tailwind(
-                                'text-[#EC344A] text-[13px] font-[600]',
+                                'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
                               )}>
                               유통기한 초과 픽업불가
                             </Text>
@@ -220,7 +234,7 @@ export default function MyInfo() {
                             )}>
                             <Text
                               style={tailwind(
-                                'text-dark text-[13px] font-[600]',
+                                'text-dark text-[13px] leading-[16px] font-[600]',
                               )}>
                               {v.status}
                             </Text>
@@ -232,26 +246,29 @@ export default function MyInfo() {
                             )}>
                             <Text
                               style={tailwind(
-                                'text-[#EC344A] text-[13px] font-[600]',
+                                'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
                               )}>
                               영업시간 종료 픽업불가
                             </Text>
                           </View>
                         )}
 
-                        <Text style={tailwind('text-[17px] font-[700] mt-1')}>
+                        <Text
+                          style={tailwind(
+                            'text-[17px] leading-[20px] font-[700] mt-1',
+                          )}>
                           {v.goods.store.name}
                         </Text>
                       </View>
                       <Text
                         style={tailwind(
-                          'text-[#39393B] text-[15px] font-[400] mb-1 mt-1',
+                          'text-[#39393B] text-[15px] leading-[18px] font-[400] mb-1 mt-1',
                         )}>
                         {v.goods.name}
                       </Text>
                       <Text
                         style={tailwind(
-                          'text-[#A7A7A8] text-[14px] font-[500] mb-1',
+                          'text-[#A7A7A8] text-[14px] leading-[17px] font-[500] mb-1',
                         )}>{`픽업 가능시간 ${
                         getBusinessHoursTime(v.goods.store.businessHours) ===
                         '00:00-00:00'
@@ -260,7 +277,7 @@ export default function MyInfo() {
                       }`}</Text>
                       <Text
                         style={tailwind(
-                          'text-[#A7A7A8] text-[14px] font-[500]',
+                          'text-[#A7A7A8] text-[14px] leading-[17px] font-[500]',
                         )}>{`결제일시 ${formatKR(
                         new Date(previewBuyHistory.createdAt),
                       ).slice(2, 10)}`}</Text>
@@ -274,7 +291,8 @@ export default function MyInfo() {
                   style={tailwind(
                     'h-[39px] flex flex-col items-center justify-center border border-[#E9E9E9]',
                   )}>
-                  <Text style={tailwind('text-[15px] font-[400]')}>
+                  <Text
+                    style={tailwind('text-[15px] leading-[18px] font-[400]')}>
                     구매내역 전체보기
                   </Text>
                 </Pressable>
@@ -283,7 +301,7 @@ export default function MyInfo() {
             <View style={tailwind('px-5')}>
               <Text
                 style={tailwind(
-                  'text-[19px] text-[#1C1C1E] font-[600] mb-[18px]',
+                  'text-[19px] leading-[22px] text-[#1C1C1E] font-[600] mb-[18px]',
                 )}>
                 고객센터
               </Text>
@@ -294,7 +312,7 @@ export default function MyInfo() {
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                 )}>
-                <Text style={tailwind('text-[17px] font-[400]')}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                   고객센터 바로연결
                 </Text>
                 <ArrowRight24 />
@@ -308,7 +326,8 @@ export default function MyInfo() {
                   style={tailwind(
                     ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                   )}>
-                  <Text style={tailwind('text-[17px] font-[400]')}>
+                  <Text
+                    style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                     판매자 페이지로 전환하기
                   </Text>
                   <ArrowRight24 />
@@ -324,7 +343,8 @@ export default function MyInfo() {
                   style={tailwind(
                     ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                   )}>
-                  <Text style={tailwind('text-[17px] font-[400]')}>
+                  <Text
+                    style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                     유저 / 파트너 관리
                   </Text>
                   <ArrowRight24 />
@@ -350,30 +370,39 @@ export default function MyInfo() {
               <View style={tailwind('px-5 flex flex-row items-center mb-3')}>
                 {/* {user.role === UserRole.ADMIN ? (
                   <Text
-                    style={tailwind(' text-[26px] font-[700] text-primary')}>
+                    style={tailwind(' text-[26px] leading-[29px] font-[700] text-primary')}>
                     {`관리자`}
                   </Text>
                 ) :  */}
                 {store.name === '' ? (
                   <Text
-                    style={tailwind(' text-[26px] font-[700] text-primary_og')}>
+                    style={tailwind(
+                      ' text-[26px] leading-[29px] font-[700] text-primary_og',
+                    )}>
                     매장 등록이 필요합니다.
                   </Text>
                 ) : (
                   <Text
-                    style={tailwind(' text-[26px] font-[700] text-primary_og')}>
+                    style={tailwind(
+                      ' text-[26px] leading-[29px] font-[700] text-primary_og',
+                    )}>
                     {store.name}
                   </Text>
                 )}
                 {store.name !== '' && (
-                  <Text style={tailwind(' text-[26px] font-[700] ml-1 ')}>
+                  <Text
+                    style={tailwind(
+                      ' text-[26px] leading-[29px] font-[700] ml-1 ',
+                    )}>
                     님
                   </Text>
                 )}
               </View>
               <View style={tailwind('px-5')}>
                 <Text
-                  style={tailwind(' text-[17px] font-[400] text-[#7B7B7C]')}>
+                  style={tailwind(
+                    ' text-[17px] leading-[20px] font-[400] text-[#7B7B7C]',
+                  )}>
                   휴대폰 뒷번호 4자리 확인 후 상품을 전달해 주세요.
                 </Text>
               </View>
@@ -385,13 +414,17 @@ export default function MyInfo() {
                 )}>
                 <View>
                   <Text
-                    style={tailwind('text-[21px] font-[600] text-[#1C1C1E]')}>
+                    style={tailwind(
+                      'text-[21px] leading-[24px] font-[600] text-[#1C1C1E]',
+                    )}>
                     이번달 판매한 금액
                   </Text>
                 </View>
                 <View>
                   <Text
-                    style={tailwind('font-[700] text-[21px] text-[#1C1C1E]')}>
+                    style={tailwind(
+                      'font-[700] text-[21px] leading-[24px] text-[#1C1C1E]',
+                    )}>
                     {converterPrice(`${monthlySaleAmount} 원`)}
                   </Text>
                 </View>
@@ -400,7 +433,7 @@ export default function MyInfo() {
             <View style={tailwind('px-5 mb-[32px]')}>
               <Text
                 style={tailwind(
-                  'text-[19px] text-[#1C1C1E] font-[600] mb-[18px]',
+                  'text-[19px] leading-[22px] text-[#1C1C1E] font-[600] mb-[18px]',
                 )}>
                 매장관리
               </Text>
@@ -411,7 +444,7 @@ export default function MyInfo() {
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                 )}>
-                <Text style={tailwind('text-[14px] font-[400]')}>
+                <Text style={tailwind('text-[14px] leading-[17px] font-[400]')}>
                   상품 관리 및 수정
                 </Text>
                 <ArrowRight24 />
@@ -423,7 +456,7 @@ export default function MyInfo() {
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                 )}>
-                <Text style={tailwind('text-[17px] font-[400]')}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                   매장 설정
                 </Text>
                 <ArrowRight24 />
@@ -432,7 +465,7 @@ export default function MyInfo() {
             <View style={tailwind('px-5 ')}>
               <Text
                 style={tailwind(
-                  'text-[19px] text-[#1C1C1E] font-[600] mb-[18px]',
+                  'text-[19px] leading-[22px] text-[#1C1C1E] font-[600] mb-[18px]',
                 )}>
                 고객센터
               </Text>
@@ -443,7 +476,7 @@ export default function MyInfo() {
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                 )}>
-                <Text style={tailwind('text-[17px] font-[400]')}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                   고객센터 바로 연결
                 </Text>
                 <ArrowRight24 />
@@ -455,7 +488,7 @@ export default function MyInfo() {
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                 )}>
-                <Text style={tailwind('text-[17px] font-[400]')}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                   구매자 페이지로 전환하기
                 </Text>
                 <ArrowRight24 />
@@ -468,7 +501,8 @@ export default function MyInfo() {
                   style={tailwind(
                     ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
                   )}>
-                  <Text style={tailwind('text-[17px] font-[400]')}>
+                  <Text
+                    style={tailwind('text-[17px] leading-[20px] font-[400]')}>
                     유저 / 파트너 관리
                   </Text>
                   <ArrowRight24 />

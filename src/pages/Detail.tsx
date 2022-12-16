@@ -224,9 +224,9 @@ export default function Detail({setStatusbarColor}: Props) {
                     } bg-[#FF594F] h-[20px] flex flex-col items-center justify-center rounded-full`,
                   )}>
                   <Text
-                    style={tailwind('text-white text-[12px] font-[700]')}>{`${
-                    basketCount > 99 ? '99+' : basketCount
-                  }`}</Text>
+                    style={tailwind(
+                      'text-white text-[12px] leading-[15px] font-[700]',
+                    )}>{`${basketCount > 99 ? '99+' : basketCount}`}</Text>
                 </View>
               )}
             </Pressable>
@@ -318,7 +318,10 @@ export default function Detail({setStatusbarColor}: Props) {
                         style={tailwind(
                           'w-[60px] h-[40px] flex flex-col items-center justify-center',
                         )}>
-                        <Text style={tailwind('text-[40px] text-white')}>
+                        <Text
+                          style={tailwind(
+                            'text-[40px] leading-[43px] text-white',
+                          )}>
                           x
                         </Text>
                       </Pressable>
@@ -374,11 +377,14 @@ export default function Detail({setStatusbarColor}: Props) {
               <View>
                 <Text
                   style={tailwind(
-                    'text-[21px] text-[#39393B] font-[700] mb-1',
+                    'text-[21px] leading-[24px] text-[#39393B] font-[700] mb-1',
                   )}>
                   {goods.name}
                 </Text>
-                <Text style={tailwind('text-[15px] text-[#0066FF] font-[700]')}>
+                <Text
+                  style={tailwind(
+                    'text-[15px] leading-[18px] text-[#0066FF] font-[700]',
+                  )}>
                   {`${formatRemainingExpiryDateKR(goods.expiryDate)}`}
                 </Text>
 
@@ -390,15 +396,21 @@ export default function Detail({setStatusbarColor}: Props) {
                     color: '#A7A7A8',
                     marginTop: 12,
                     marginBottom: 4,
+                    lineHeight: 22,
                   }}>
                   {`${converterPrice(goods.originPrice.toString())}원`}
                 </Text>
                 <View style={tailwind('flex flex-row items-center')}>
-                  <Text style={tailwind('text-[27px] font-[700] mr-2')}>
+                  <Text
+                    style={tailwind(
+                      'text-[27px] leading-[30px] font-[700] mr-2',
+                    )}>
                     {`${converterPrice(goods.salePrice.toString())}원`}
                   </Text>
                   <Text
-                    style={tailwind('text-[#FF2E00] text-[27px] font-[700]')}>
+                    style={tailwind(
+                      'text-[#FF2E00] text-[27px] leading-[30px] font-[700]',
+                    )}>
                     {`${goods.discount + goods.additionalDiscount}%`}
                   </Text>
                 </View>
@@ -416,7 +428,7 @@ export default function Detail({setStatusbarColor}: Props) {
                   <Target14 />
                   <Text
                     style={tailwind(
-                      'text-[#1C1C1E] text-[13px] font-[600] ml-1 leading-[14px]',
+                      'text-[#1C1C1E] text-[13px] leading-[16px] font-[600] ml-1 leading-[14px]',
                     )}>
                     매장 위치
                   </Text>
@@ -431,7 +443,9 @@ export default function Detail({setStatusbarColor}: Props) {
 
                   <Text
                     style={tailwind(
-                      `text-[21px] ${quantity === 0 ? 'text-[#DEE2E8]' : ''}`,
+                      `text-[21px] leading-[24px] ${
+                        quantity === 0 ? 'text-[#DEE2E8]' : ''
+                      }`,
                     )}>{`${quantity}`}</Text>
                   <Pressable onPress={incrementHandler}>
                     <BtnPlusIcon />
@@ -445,15 +459,21 @@ export default function Detail({setStatusbarColor}: Props) {
               )}>
               <Text
                 style={tailwind(
-                  'text-[15px] mr-[12px] font-[600] text-[#7B7B7C] leading-[18px]',
+                  'text-[15px] leading-[18px] mr-[12px] font-[600] text-[#7B7B7C] leading-[18px]',
                 )}>
                 안내사항
               </Text>
               <View>
-                <Text style={tailwind('text-[15px] font-[400] text-[#7B7B7C]')}>
+                <Text
+                  style={tailwind(
+                    'text-[15px] leading-[18px] font-[400] text-[#7B7B7C]',
+                  )}>
                   사진 상 이미지와 실제 이미지는 상품의 포장
                 </Text>
-                <Text style={tailwind('text-[15px] font-[400] text-[#7B7B7C]')}>
+                <Text
+                  style={tailwind(
+                    'text-[15px] leading-[18px] font-[400] text-[#7B7B7C]',
+                  )}>
                   여부에 따라 다소 차이가 날 수 있습니다.
                 </Text>
               </View>
@@ -465,11 +485,13 @@ export default function Detail({setStatusbarColor}: Props) {
                     'flex flex-row justify-between items-center mb-2',
                   )}>
                   <Text
-                    style={tailwind('text-[19px] font-[600] text-[#1C1C1E]')}>
+                    style={tailwind(
+                      'text-[19px] leading-[22px] font-[600] text-[#1C1C1E]',
+                    )}>
                     이 매장 상품 더보기
                   </Text>
                   <Pressable
-                    style={tailwind('flex flex-row')}
+                    style={tailwind('flex flex-row items-center')}
                     onPress={() => {
                       navigation.navigate(RouterList.Store, {
                         userId: goods.store.userId,
@@ -477,7 +499,7 @@ export default function Detail({setStatusbarColor}: Props) {
                     }}>
                     <Text
                       style={tailwind(
-                        'text-[15px] font-[400] text-[#1C1C1E] mr-1',
+                        'text-[15px] leading-[18px] font-[400] text-[#1C1C1E] mr-1',
                       )}>
                       전체보기
                     </Text>
@@ -519,7 +541,7 @@ export default function Detail({setStatusbarColor}: Props) {
                                 )}>
                                 <Text
                                   style={tailwind(
-                                    'text-white text-[19px] font-[600]',
+                                    'text-white text-[19px] leading-[22px] font-[600]',
                                   )}>
                                   품절
                                 </Text>
@@ -534,7 +556,7 @@ export default function Detail({setStatusbarColor}: Props) {
                         </View>
                         <Text
                           style={tailwind(
-                            'mt-1 text-[15px] text-[#39393B] font-[700]',
+                            'mt-1 text-[15px] leading-[18px] text-[#39393B] font-[700]',
                           )}
                           numberOfLines={1}>
                           {v.name}
@@ -546,6 +568,7 @@ export default function Detail({setStatusbarColor}: Props) {
                               textDecorationLine: 'line-through',
                               textDecorationStyle: 'solid',
                               fontSize: 14,
+                              lineHeight: 17,
                               color: '#A7A7A8',
                             },
                           ]}>
@@ -554,13 +577,13 @@ export default function Detail({setStatusbarColor}: Props) {
                         <View style={tailwind('flex flex-row items-center')}>
                           <Text
                             style={tailwind(
-                              'text-[17px] font-[700] text-[#1C1C1E]',
+                              'text-[17px] leading-[20px] font-[700] text-[#1C1C1E]',
                             )}>
                             {`${converterPrice(v.salePrice.toString())}원`}
                           </Text>
                           <Text
                             style={tailwind(
-                              'text-[#FF2E00] text-[17px] font-[700] ml-1',
+                              'text-[#FF2E00] text-[17px] leading-[20px] font-[700] ml-1',
                             )}>
                             {`${v.discount + v.additionalDiscount}%`}
                           </Text>
@@ -569,7 +592,7 @@ export default function Detail({setStatusbarColor}: Props) {
                           style={tailwind('flex flex-row items-center mt-1')}>
                           <Text
                             style={tailwind(
-                              'text-[14px] font-[700] text-[#0066FF]',
+                              'text-[14px] leading-[17px] font-[700] text-[#0066FF]',
                             )}>
                             {`${formatRemainingExpiryDateKR(v.expiryDate)}`}
                           </Text>
@@ -598,7 +621,7 @@ export default function Detail({setStatusbarColor}: Props) {
           )}>
           <Text
             style={tailwind(
-              `text-[19px] font-[600]  ${
+              `text-[19px] leading-[22px] font-[600]  ${
                 goods.quantity === 0 ? 'text-[#D3D3D3]' : 'text-black'
               }`,
             )}>

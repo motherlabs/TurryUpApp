@@ -209,6 +209,22 @@
   bottom: 35px
 }
 
+.top-\[25\%\] {
+  top: 25%
+}
+
+.bottom-\[3\%\] {
+  bottom: 3%
+}
+
+.bottom-\[11\%\] {
+  bottom: 11%
+}
+
+.top-\[35\%\] {
+  top: 35%
+}
+
 .z-50 {
   z-index: 50
 }
@@ -223,6 +239,10 @@
 
 .z-30 {
   z-index: 30
+}
+
+.m-0 {
+  margin: 0px
 }
 
 .my-7 {
@@ -467,6 +487,22 @@
   margin-top: 3rem
 }
 
+.mr-\[15px\] {
+  margin-right: 15px
+}
+
+.mt-\[25px\] {
+  margin-top: 25px
+}
+
+.mr-\[10px\] {
+  margin-right: 10px
+}
+
+.ml-3 {
+  margin-left: 0.75rem
+}
+
 .flex {
   display: flex
 }
@@ -663,6 +699,18 @@
   height: auto
 }
 
+.h-\[12px\] {
+  height: 12px
+}
+
+.h-\[16px\] {
+  height: 16px
+}
+
+.h-\[400px\] {
+  height: 400px
+}
+
 .w-\[8px\] {
   width: 8px
 }
@@ -817,6 +865,18 @@
 
 .w-\[300px\] {
   width: 300px
+}
+
+.w-\[12px\] {
+  width: 12px
+}
+
+.w-\[16px\] {
+  width: 16px
+}
+
+.w-\[40\%\] {
+  width: 40%
 }
 
 .flex-1 {
@@ -1133,6 +1193,11 @@
   background-color: rgb(219 39 119 / var(--tw-bg-opacity))
 }
 
+.bg-\[\#FFE145\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 225 69 / var(--tw-bg-opacity))
+}
+
 .p-2 {
   padding: 0.5rem
 }
@@ -1147,6 +1212,10 @@
 
 .p-\[21px\] {
   padding: 21px
+}
+
+.p-0 {
+  padding: 0px
 }
 
 .px-2 {
@@ -1332,6 +1401,14 @@
   padding-top: 0.5rem
 }
 
+.pl-4 {
+  padding-left: 1rem
+}
+
+.text-center {
+  text-align: center
+}
+
 .text-\[20px\] {
   font-size: 20px
 }
@@ -1443,6 +1520,82 @@
 
 .leading-\[36\] {
   line-height: 36
+}
+
+.leading-4 {
+  line-height: 1rem
+}
+
+.leading-6 {
+  line-height: 1.5rem
+}
+
+.leading-5 {
+  line-height: 1.25rem
+}
+
+.leading-3 {
+  line-height: .75rem
+}
+
+.leading-\[21px\] {
+  line-height: 21px
+}
+
+.leading-\[17px\] {
+  line-height: 17px
+}
+
+.leading-\[19px\] {
+  line-height: 19px
+}
+
+.leading-\[16px\] {
+  line-height: 16px
+}
+
+.leading-\[25px\] {
+  line-height: 25px
+}
+
+.leading-\[15px\] {
+  line-height: 15px
+}
+
+.leading-\[15pxpx\] {
+  line-height: 15pxpx
+}
+
+.leading-\[20px\] {
+  line-height: 20px
+}
+
+.leading-\[22px\] {
+  line-height: 22px
+}
+
+.leading-\[23px\] {
+  line-height: 23px
+}
+
+.leading-\[24px\] {
+  line-height: 24px
+}
+
+.leading-\[26px\] {
+  line-height: 26px
+}
+
+.leading-\[29px\] {
+  line-height: 29px
+}
+
+.leading-\[43px\] {
+  line-height: 43px
+}
+
+.leading-\[30px\] {
+  line-height: 30px
 }
 
 .text-\[\#909090\] {

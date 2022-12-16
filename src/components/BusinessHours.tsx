@@ -88,11 +88,14 @@ export default function BusinessHours({
   return (
     <View style={tailwind('pt-3 pb-10')}>
       <View style={tailwind('h-[30px] flex flex-col  justify-center')}>
-        <Text style={tailwind('text-[20px]')}>영업시간</Text>
+        <Text style={tailwind('text-[20px] leading-[23px]')}>영업시간</Text>
       </View>
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           월
         </Text>
 
@@ -112,7 +115,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -129,7 +134,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end w-[120px]')}>
@@ -139,7 +146,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsMonStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   monStart.length > 0 ? monStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -147,7 +154,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsMonEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   monEnd.length > 0 ? monEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -158,7 +165,10 @@ export default function BusinessHours({
 
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           화
         </Text>
 
@@ -178,7 +188,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -195,7 +207,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -205,7 +219,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsTueStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   tueStart.length > 0 ? tueStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -213,7 +227,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsTueEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   tueEnd.length > 0 ? tueEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -224,7 +238,10 @@ export default function BusinessHours({
 
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           수
         </Text>
 
@@ -244,7 +261,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -261,7 +280,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -271,7 +292,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsWedStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   wedStart.length > 0 ? wedStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -279,7 +300,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsWedEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   wedEnd.length > 0 ? wedEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -290,7 +311,10 @@ export default function BusinessHours({
 
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           목
         </Text>
 
@@ -310,7 +334,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -327,7 +353,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -337,7 +365,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsThuStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   thuStart.length > 0 ? thuStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -345,7 +373,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsThuEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   thuEnd.length > 0 ? thuEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -355,7 +383,10 @@ export default function BusinessHours({
       </View>
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           금
         </Text>
 
@@ -375,7 +406,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -392,7 +425,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -402,7 +437,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsFriStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   friStart.length > 0 ? friStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -410,7 +445,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsFriEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   friEnd.length > 0 ? friEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -421,7 +456,10 @@ export default function BusinessHours({
 
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           토
         </Text>
 
@@ -441,7 +479,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -458,7 +498,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -468,7 +510,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsSatStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   satStart.length > 0 ? satStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -476,7 +518,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsSatEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   satEnd.length > 0 ? satEnd : '00:00'
                 }`}</Text>
               </Pressable>
@@ -487,7 +529,10 @@ export default function BusinessHours({
 
       <View
         style={tailwind('flex flex-row justify-between items-center h-[30px]')}>
-        <Text style={tailwind('text-[#909090] text-[18px] font-[500]')}>
+        <Text
+          style={tailwind(
+            'text-[#909090] text-[18px] leading-[21px] font-[500]',
+          )}>
           일
         </Text>
 
@@ -507,7 +552,9 @@ export default function BusinessHours({
                   : 'bg-primary_og'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업가능</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업가능
+            </Text>
           </Pressable>
           <View style={tailwind('w-[8px]')} />
           <Pressable
@@ -524,7 +571,9 @@ export default function BusinessHours({
                   : 'bg-gray-300'
               } h-[20px] flex flex-col items-center justify-center px-2 rounded-lg`,
             )}>
-            <Text style={tailwind('text-white text-[17px]')}>영업불가</Text>
+            <Text style={tailwind('text-white text-[17px] leading-[20px]')}>
+              영업불가
+            </Text>
           </Pressable>
         </View>
         <View style={tailwind('flex flex-col items-end  w-[120px] ')}>
@@ -534,7 +583,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsSunStart(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   sunStart.length > 0 ? sunStart : '00:00'
                 }-`}</Text>
               </Pressable>
@@ -542,7 +591,7 @@ export default function BusinessHours({
                 onPress={() => {
                   setIsSunEnd(true);
                 }}>
-                <Text style={tailwind('text-[17px]')}>{`${
+                <Text style={tailwind('text-[17px] leading-[20px]')}>{`${
                   sunEnd.length > 0 ? sunEnd : '00:00'
                 }`}</Text>
               </Pressable>

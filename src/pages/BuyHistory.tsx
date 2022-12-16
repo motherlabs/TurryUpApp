@@ -62,7 +62,9 @@ export default function BuyHistory() {
           style={tailwind(
             'flex flex-col h-[56px]  items-center justify-center',
           )}>
-          <Text style={tailwind(' text-[21px] font-[600]')}>구매내역</Text>
+          <Text style={tailwind(' text-[21px] leading-[24px] font-[600]')}>
+            구매내역
+          </Text>
           <Pressable
             onPress={() => {
               navigation.goBack();
@@ -101,7 +103,7 @@ export default function BuyHistory() {
                         )}>
                         <Text
                           style={tailwind(
-                            'text-[#7B7B7C] text-[13px] font-[600]',
+                            'text-[#7B7B7C] text-[13px] leading-[16px] font-[600]',
                           )}>
                           {item.status}
                         </Text>
@@ -113,7 +115,7 @@ export default function BuyHistory() {
                         )}>
                         <Text
                           style={tailwind(
-                            'text-[#EC344A] text-[13px] font-[600]',
+                            'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
                           )}>
                           유통기한 초과 픽업불가
                         </Text>
@@ -127,7 +129,9 @@ export default function BuyHistory() {
                           'bg-light rounded-[4px] px-2 py-1 mr-1',
                         )}>
                         <Text
-                          style={tailwind('text-dark text-[13px] font-[600]')}>
+                          style={tailwind(
+                            'text-dark text-[13px] leading-[16px] font-[600]',
+                          )}>
                           {item.status}
                         </Text>
                       </View>
@@ -138,13 +142,16 @@ export default function BuyHistory() {
                         )}>
                         <Text
                           style={tailwind(
-                            'text-[#EC344A] text-[13px] font-[600]',
+                            'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
                           )}>
                           영업시간 종료 픽업불가
                         </Text>
                       </View>
                     )}
-                    <Text style={tailwind('text-[17px] font-[700] mr-2')}>
+                    <Text
+                      style={tailwind(
+                        'text-[17px] leading-[20px] font-[700] mr-2',
+                      )}>
                       {item.goods.store.name}
                     </Text>
                     <ArrowRight12 />
@@ -162,13 +169,13 @@ export default function BuyHistory() {
                     <View>
                       <Text
                         style={tailwind(
-                          'text-[17px] font-[700] text-[#39393B] mb-1',
+                          'text-[17px] leading-[20px] font-[700] text-[#39393B] mb-1',
                         )}>
                         {item.goods.name}
                       </Text>
                       <Text
                         style={tailwind(
-                          'text-[#A7A7A8] text-[14px] font-[500] mb-1',
+                          'text-[#A7A7A8] text-[14px] leading-[17px] font-[500] mb-1',
                         )}>{`픽업 가능시간 ${
                         getBusinessHoursTime(item.goods.store.businessHours) ===
                         '00:00-00:00'
@@ -177,20 +184,20 @@ export default function BuyHistory() {
                       }`}</Text>
                       <Text
                         style={tailwind(
-                          'text-[#A7A7A8] text-[14px] font-[500] mb-1',
+                          'text-[#A7A7A8] text-[14px] leading-[17px] font-[500] mb-1',
                         )}>{`결제일시 ${formatKR(new Date(v.createdAt)).slice(
                         2,
                         10,
                       )}`}</Text>
                       <Text
                         style={tailwind(
-                          'text-[14px] font-[500] text-[#7B7B7C] mb-1',
+                          'text-[14px] leading-[17px] font-[500] text-[#7B7B7C] mb-1',
                         )}>
                         {`수량 : ${item.quantity}`}
                       </Text>
                       <Text
                         style={tailwind(
-                          'text-[17px] font-[700] text-[#1C1C1E]',
+                          'text-[17px] leading-[20px] font-[700] text-[#1C1C1E]',
                         )}>
                         {`${converterPrice(
                           (item.goods.salePrice * item.quantity).toString(),

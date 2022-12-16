@@ -413,7 +413,7 @@ export default function StoreAdd() {
             <BackIcon width={21} height={21} fill={'black'} />
           </Pressable>
 
-          <Text style={tailwind('font-[600] text-[21px]')}>
+          <Text style={tailwind('font-[600] text-[21px] leading-[24px]')}>
             {isUpdate ? `매장 수정` : `매장 등록`}
           </Text>
           {isUpdate ? (
@@ -424,7 +424,10 @@ export default function StoreAdd() {
               style={tailwind(
                 'absolute top-0 px-[20px] right-0  h-[56px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-[21px] font-[400] text-[#FF521C]')}>
+              <Text
+                style={tailwind(
+                  'text-[21px] leading-[24px] font-[400] text-[#FF521C]',
+                )}>
                 수정
               </Text>
             </Pressable>
@@ -436,7 +439,10 @@ export default function StoreAdd() {
               style={tailwind(
                 'absolute top-0 px-[20px] right-0  h-[56px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-[21px] font-[400] text-[#FF521C]')}>
+              <Text
+                style={tailwind(
+                  'text-[21px] leading-[24px] font-[400] text-[#FF521C]',
+                )}>
                 등록
               </Text>
             </Pressable>
@@ -504,7 +510,7 @@ export default function StoreAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '매장명' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="매장명을 입력해주세요."
                 value={name}
@@ -526,7 +532,7 @@ export default function StoreAdd() {
                 <View>
                   <Text
                     style={tailwind(
-                      `text-[20px] font-[400] ${
+                      `text-[20px] leading-[23px] font-[400] ${
                         roadNameAddress === ''
                           ? 'text-[#D3D3D3]'
                           : 'text-[#1C1C1E]'
@@ -546,7 +552,7 @@ export default function StoreAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '상세주소' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="상세주소를 입력해주세요."
                 value={detailAddress}
@@ -560,7 +566,7 @@ export default function StoreAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '픽업존' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 placeholder="픽업존을 입력해주세요."
                 value={picupZone}
@@ -574,7 +580,7 @@ export default function StoreAdd() {
                 style={tailwind(
                   `w-full h-[64px] border-b ${
                     focus === '전화번호' ? 'border-primary' : 'border-[#F4F4F4]'
-                  } text-[#1C1C1E] text-[20px] font-[400]`,
+                  } text-[#1C1C1E] text-[20px] leading-[23px] font-[400]`,
                 )}
                 keyboardType="number-pad"
                 placeholder="전화번호를 입력해주세요."

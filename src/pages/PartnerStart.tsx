@@ -95,13 +95,13 @@ export default function PartnerStart({setStatusbarColor}: Props) {
           </Pressable>
           <View
             style={tailwind(
-              'absolute top-[30%] w-full flex flex-col items-center',
+              'absolute top-[25%] w-full flex flex-col items-center',
             )}>
             <StartPartnerIcon />
           </View>
           <View
             style={tailwind(
-              'absolute bottom-[14%] z-50 w-full flex flex-col items-center',
+              'absolute bottom-[11%] z-50 w-full flex flex-col items-center',
             )}>
             {/* <FadeInOut visible={visible} scale={true}>
           <Tooltip />
@@ -113,7 +113,10 @@ export default function PartnerStart({setStatusbarColor}: Props) {
               style={tailwind(
                 'w-[315px] bg-primary h-[52px] rounded-[4px] flex flex-col items-center justify-center',
               )}>
-              <Text style={tailwind('text-black font-[600] text-[16px]')}>
+              <Text
+                style={tailwind(
+                  'text-black font-[600] text-[16px] leading-[19px]',
+                )}>
                 시작하기
               </Text>
             </Pressable>

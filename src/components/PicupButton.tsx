@@ -14,7 +14,8 @@ export default function PicupButton() {
         style={tailwind(
           'h-[45px] w-[320px] rounded-[4px] bg-primary flex flex-col items-center justify-center',
         )}>
-        <Text style={tailwind(' text-[16px] text-white font-[600]')}>
+        <Text
+          style={tailwind(' text-[16px] leading-[19px] text-white font-[600]')}>
           1개 픽업 완료
         </Text>
       </Pressable>

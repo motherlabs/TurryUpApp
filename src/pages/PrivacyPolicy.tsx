@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
           style={tailwind(
             'flex flex-col h-[56px]  items-center justify-center',
           )}>
-          <Text style={tailwind(' text-[21px] font-[600]')}>
+          <Text style={tailwind(' text-[21px] leading-[24px] font-[600]')}>
             개인정보처리방침
           </Text>
           <Pressable
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
           <View style={tailwind('h-full bg-background px-4 py-5')}>
             <Text
               style={tailwind(
-                'text-[16px] mb-2',
+                'text-[16px] leading-[19px] mb-2',
               )}>{`“주식회사 마더랩스”(이하 “회사” 또는 “덕템” 이라 함)는 개인정보보호법, 정보통신망 이용 촉진 및 정보보호에 관한 법률, 통신비밀보호법 정보통신서비스제공자가 준수하여야 할 관련 법령상의 규정을 준수하며, 관련 법령에 의거한 개인정보처리방침을 정하여 이용자의 권익 보호에 최선을 다하고 있습니다. 본 개인정보처리방침은 회사가 제공하는 서비스 이용에 적용되고 다음과 같은 내용을 담고 있습니다.
 
 **개인정보 수집 및 이용 현황**
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
             </View>
             <Text
               style={tailwind(
-                'text-[16px] mb-2 mt-12',
+                'text-[16px] leading-[19px] mb-2 mt-12',
               )}>{`덕템에서 수집 및 이용되는 개인정보는 다음의 경로로 수집됩니다.
 
 - 개인정보 수집 방법
@@ -103,7 +103,7 @@ export default function PrivacyPolicy() {
             </View>
             <Text
               style={tailwind(
-                'text-[16px] mb-2 mt-4',
+                'text-[16px] leading-[19px] mb-2 mt-4',
               )}>{`- 관련 법령에 의한 사유`}</Text>
             <View
               style={{width: Dimensions.get('window').width - 32, height: 200}}>
@@ -113,7 +113,10 @@ export default function PrivacyPolicy() {
                 source={require('../assets/image/privacy-4.png')}
               />
             </View>
-            <Text style={tailwind('text-[16px] mb-2 mt-12')}>{`**제휴서비스**
+            <Text
+              style={tailwind(
+                'text-[16px] leading-[19px] mb-2 mt-12',
+              )}>{`**제휴서비스**
 
 덕템은 제휴서비스 제공의 목적으로 제휴사를 통해 개인정보를 추가 수집하는 경우 이용자의 동의를 얻어 이를 수집합니다.
 

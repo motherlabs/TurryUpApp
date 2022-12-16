@@ -62,19 +62,77 @@ export default function Home() {
   const [isNotScroll, setIsNotScroll] = useState(false);
 
   useEffect(() => {
-    if (address.name === '') {
-      // return Alert.alert('주소를 등록해주세요.');
-    } else {
-      const findAllUserLocationListGoodsAPIHandler = async () => {
+    try {
+      if (address.name === '') {
+        // return Alert.alert('주소를 등록해주세요.');
+      } else {
+        const findAllUserLocationListGoodsAPIHandler = async () => {
+          dispatch(loadingSlice.actions.setLoading(true));
+          const goodsListData: IGoods[] =
+            await goodsAPI.findAllUserLocationList({
+              latitude: address.latitude,
+              longitude: address.longitude,
+              range: address.range < 2 ? address.range : address.range - 0.8,
+              skip: 0,
+              take: infiniteScroll.take,
+              category: '',
+            });
+          if (goodsListData.length > 0) {
+            const accurateRangeFilteredGoodsList = goodsListData
+              .filter(
+                v =>
+                  +getDistanceFromLatLonInKm(
+                    address.latitude,
+                    address.longitude,
+                    v.store.latitude,
+                    v.store.longitude,
+                  ) *
+                    10 <=
+                  address.range * 10,
+              )
+              .sort(() => Math.random() - 0.5);
+            dispatch(
+              goodsSlice.actions.setGoodsList(accurateRangeFilteredGoodsList),
+            );
+            setFilteredGoodsList(accurateRangeFilteredGoodsList);
+            dispatch(infiniteScrollSlice.actions.setSkip(10));
+          }
+          dispatch(loadingSlice.actions.setLoading(false));
+        };
+        if (!visible) {
+          findAllUserLocationListGoodsAPIHandler();
+          setVisible(true);
+        }
+      }
+    } catch (e) {
+    } finally {
+      dispatch(loadingSlice.actions.setLoading(false));
+    }
+  }, [address, dispatch, infiniteScroll, visible]);
+
+  useEffect(() => {
+    const findAllCategoryAPIHandler = async () => {
+      dispatch(loadingSlice.actions.setLoading(true));
+      const category = await categoryAPI.findAll();
+      dispatch(categorySlice.actions.setCategories(category.data));
+      dispatch(loadingSlice.actions.setLoading(false));
+    };
+    findAllCategoryAPIHandler();
+  }, [dispatch]);
+
+  const changeCategoryHandler = useCallback(
+    async (name: string) => {
+      try {
         dispatch(loadingSlice.actions.setLoading(true));
         const goodsListData: IGoods[] = await goodsAPI.findAllUserLocationList({
           latitude: address.latitude,
           longitude: address.longitude,
-          range: address.range - 0.8,
+          range: address.range < 2 ? address.range : address.range - 0.8,
           skip: 0,
           take: infiniteScroll.take,
-          category: '',
+          category: name,
         });
+        dispatch(loadingSlice.actions.setLoading(false));
         if (goodsListData.length > 0) {
           const accurateRangeFilteredGoodsList = goodsListData
             .filter(
@@ -94,38 +152,35 @@ export default function Home() {
           );
           setFilteredGoodsList(accurateRangeFilteredGoodsList);
           dispatch(infiniteScrollSlice.actions.setSkip(10));
+        } else {
+          setFilteredGoodsList([]);
         }
+        setIsNotScroll(false);
+        if (name === '') {
+          setFilteredCategory('');
+        } else {
+          setFilteredCategory(name);
+        }
+      } catch (e) {
+      } finally {
         dispatch(loadingSlice.actions.setLoading(false));
-      };
-      if (!visible) {
-        findAllUserLocationListGoodsAPIHandler();
-        setVisible(true);
       }
-    }
-  }, [address, dispatch, infiniteScroll, visible]);
+    },
+    [setFilteredGoodsList, address, dispatch, infiniteScroll],
+  );
 
-  useEffect(() => {
-    const findAllCategoryAPIHandler = async () => {
-      dispatch(loadingSlice.actions.setLoading(true));
-      const category = await categoryAPI.findAll();
-      dispatch(categorySlice.actions.setCategories(category.data));
-      dispatch(loadingSlice.actions.setLoading(false));
-    };
-    findAllCategoryAPIHandler();
-  }, [dispatch]);
+  const onRefresh = useCallback(async () => {
+    try {
+      setIsRefresh(true);
 
-  const changeCategoryHandler = useCallback(
-    async (name: string) => {
-      dispatch(loadingSlice.actions.setLoading(true));
       const goodsListData: IGoods[] = await goodsAPI.findAllUserLocationList({
         latitude: address.latitude,
         longitude: address.longitude,
-        range: address.range - 0.8,
+        range: address.range < 2 ? address.range : address.range - 0.8,
         skip: 0,
         take: infiniteScroll.take,
-        category: name,
+        category: filteredCategory,
       });
-      dispatch(loadingSlice.actions.setLoading(false));
       if (goodsListData.length > 0) {
         const accurateRangeFilteredGoodsList = goodsListData
           .filter(
@@ -145,92 +200,59 @@ export default function Home() {
         );
         setFilteredGoodsList(accurateRangeFilteredGoodsList);
         dispatch(infiniteScrollSlice.actions.setSkip(10));
-      } else {
-        setFilteredGoodsList([]);
       }
+      await wait(500);
       setIsNotScroll(false);
-      if (name === '') {
-        setFilteredCategory('');
-      } else {
-        setFilteredCategory(name);
-      }
-    },
-    [setFilteredGoodsList, address, dispatch, infiniteScroll],
-  );
-
-  const onRefresh = useCallback(async () => {
-    setIsRefresh(true);
-    const goodsListData: IGoods[] = await goodsAPI.findAllUserLocationList({
-      latitude: address.latitude,
-      longitude: address.longitude,
-      range: address.range - 0.8,
-      skip: 0,
-      take: infiniteScroll.take,
-      category: filteredCategory,
-    });
-    if (goodsListData.length > 0) {
-      const accurateRangeFilteredGoodsList = goodsListData
-        .filter(
-          v =>
-            +getDistanceFromLatLonInKm(
-              address.latitude,
-              address.longitude,
-              v.store.latitude,
-              v.store.longitude,
-            ) *
-              10 <=
-            address.range * 10,
-        )
-        .sort(() => Math.random() - 0.5);
-      dispatch(goodsSlice.actions.setGoodsList(accurateRangeFilteredGoodsList));
-      setFilteredGoodsList(accurateRangeFilteredGoodsList);
-      dispatch(infiniteScrollSlice.actions.setSkip(10));
+    } catch (e) {
+    } finally {
+      setIsRefresh(false);
     }
-    await wait(500);
-    setIsNotScroll(false);
-    setIsRefresh(false);
   }, [address, dispatch, infiniteScroll, filteredCategory]);
 
   const infiniteScrollHandler = useCallback(async () => {
-    setIsFetching(true);
-    const goodsListData: IGoods[] = await goodsAPI.findAllUserLocationList({
-      latitude: address.latitude,
-      longitude: address.longitude,
-      range: address.range - 0.8,
-      skip: infiniteScroll.skip,
-      take: infiniteScroll.take,
-      category: filteredCategory,
-    });
-    if (goodsListData.length > 0) {
-      const accurateRangeFilteredGoodsList = goodsListData
-        .filter(
-          v =>
-            +getDistanceFromLatLonInKm(
-              address.latitude,
-              address.longitude,
-              v.store.latitude,
-              v.store.longitude,
-            ) *
-              10 <=
-            address.range * 10,
-        )
-        .sort(() => Math.random() - 0.5);
-      dispatch(
-        goodsSlice.actions.setGoodsList([
-          ...goodsList,
+    try {
+      setIsFetching(true);
+      const goodsListData: IGoods[] = await goodsAPI.findAllUserLocationList({
+        latitude: address.latitude,
+        longitude: address.longitude,
+        range: address.range < 2 ? address.range : address.range - 0.8,
+        skip: infiniteScroll.skip,
+        take: infiniteScroll.take,
+        category: filteredCategory,
+      });
+      if (goodsListData.length > 0) {
+        const accurateRangeFilteredGoodsList = goodsListData
+          .filter(
+            v =>
+              +getDistanceFromLatLonInKm(
+                address.latitude,
+                address.longitude,
+                v.store.latitude,
+                v.store.longitude,
+              ) *
+                10 <=
+              address.range * 10,
+          )
+          .sort(() => Math.random() - 0.5);
+        dispatch(
+          goodsSlice.actions.setGoodsList([
+            ...goodsList,
+            ...accurateRangeFilteredGoodsList,
+          ]),
+        );
+        setFilteredGoodsList(prev => [
+          ...prev,
           ...accurateRangeFilteredGoodsList,
-        ]),
-      );
-      setFilteredGoodsList(prev => [
-        ...prev,
-        ...accurateRangeFilteredGoodsList,
-      ]);
-      dispatch(infiniteScrollSlice.actions.setSkip(infiniteScroll.skip + 10));
+        ]);
+        dispatch(infiniteScrollSlice.actions.setSkip(infiniteScroll.skip + 10));
+      }
+      if (goodsListData.length < 10) {
+        setIsNotScroll(true);
+      }
+    } catch (e) {
+    } finally {
+      setIsFetching(false);
     }
-    if (goodsListData.length < 10) {
-      setIsNotScroll(true);
-    }
-    setIsFetching(false);
   }, [address, dispatch, infiniteScroll, goodsList, filteredCategory]);
 
   return (
@@ -242,7 +264,8 @@ export default function Home() {
         style={tailwind(
           'flex flex-row items-center justify-start border-b border-line  h-[60px]',
         )}>
-        <Text style={tailwind('text-[22px] font-[600] ml-4 mr-2')}>
+        <Text
+          style={tailwind('text-[22px] font-[600] ml-4 mr-2 leading-[25px]')}>
           {`${
             address.name === ''
               ? '주소 등록이 필요합니다'
@@ -268,7 +291,7 @@ export default function Home() {
               style={tailwind(
                 `${
                   filteredCategory === '' ? 'text-white' : 'text-[#1C1C1E]'
-                } text-[13px] font-[700]`,
+                } text-[13px] font-[700] leading-[16px]`,
               )}>
               전체보기
             </Text>
@@ -293,7 +316,7 @@ export default function Home() {
                       v.name === filteredCategory
                         ? 'text-white'
                         : 'text-[#1C1C1E]'
-                    }  text-[13px] font-[700]`,
+                    }  text-[13px] leading-[16px] font-[700]`,
                   )}>
                   {v.name}
                 </Text>
@@ -374,7 +397,7 @@ export default function Home() {
                           )}>
                           <Text
                             style={tailwind(
-                              'text-white text-[19px] font-[600]',
+                              'text-white text-[19px]  leading-[22px] font-[600]',
                             )}>
                             품절
                           </Text>
@@ -390,13 +413,15 @@ export default function Home() {
                   </View>
                   <Text
                     numberOfLines={1}
-                    style={tailwind('mt-[15px] text-[14px] font-[400]')}>
+                    style={tailwind(
+                      'mt-[15px] text-[14px] font-[400] leading-[17px]',
+                    )}>
                     {item.store.name}
                   </Text>
                   <Text
                     numberOfLines={1}
                     style={tailwind(
-                      'mt-1 text-[18px] text-[#39393B] font-[700]',
+                      'mt-1 text-[18px] text-[#39393B] font-[700] leading-[21px]',
                     )}>
                     {item.name}
                   </Text>
@@ -408,25 +433,30 @@ export default function Home() {
                         textDecorationStyle: 'solid',
                         fontSize: 15,
                         color: '#A7A7A8',
+                        lineHeight: 18,
                       },
                     ]}>
                     {`${converterPrice(item.originPrice.toString())}원`}
                   </Text>
                   <View style={tailwind('flex flex-row items-center')}>
                     <Text
-                      style={tailwind('text-[18px] font-[700] text-[#1C1C1E]')}>
+                      style={tailwind(
+                        'text-[18px] font-[700] text-[#1C1C1E] leading-[21px]',
+                      )}>
                       {`${converterPrice(item.salePrice.toString())}원`}
                     </Text>
                     <Text
                       style={tailwind(
-                        'text-[#FF2E00] text-[18px] font-[700] ml-1',
+                        'text-[#FF2E00] text-[18px] font-[700] ml-1 leading-[21px]',
                       )}>
                       {`${item.discount + item.additionalDiscount}%`}
                     </Text>
                   </View>
                   <View style={tailwind('flex flex-row items-center mt-1')}>
                     <Text
-                      style={tailwind('text-[16px] font-[700] text-[#0066FF]')}>
+                      style={tailwind(
+                        'text-[16px] leading-[19px] font-[700] text-[#0066FF] leading-[19px]',
+                      )}>
                       {`${formatRemainingExpiryDateKR(item.expiryDate)}`}
                     </Text>
                     {/* <Text
@@ -450,10 +480,16 @@ export default function Home() {
             style={tailwind(
               'absolute top-[40%] left-0 w-full  flex flex-col items-center justify-center',
             )}>
-            <Text style={tailwind('text-[17px] text-[#A7A7A8] font-[400]')}>
+            <Text
+              style={tailwind(
+                'text-[17px] leading-[20px] text-[#A7A7A8] font-[400]',
+              )}>
               현재 판매중인 상품이 없습니다.
             </Text>
-            <Text style={tailwind('text-[17px] text-[#A7A7A8] font-[400]')}>
+            <Text
+              style={tailwind(
+                'text-[17px] leading-[20px] text-[#A7A7A8] font-[400]',
+              )}>
               잠시만 기다려 주세요!
             </Text>
           </View>

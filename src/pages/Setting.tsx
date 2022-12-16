@@ -141,7 +141,9 @@ export default function Setting() {
             style={tailwind(
               'flex flex-col items-center justify-center h-[56px]',
             )}>
-            <Text style={tailwind(' text-[21px] font-[600]')}>설정</Text>
+            <Text style={tailwind(' text-[21px] leading-[24px] font-[600]')}>
+              설정
+            </Text>
             <Pressable
               onPress={() => {
                 navigation.goBack();
@@ -155,7 +157,9 @@ export default function Setting() {
         </View>
         <View style={tailwind('px-5')}>
           <Text
-            style={tailwind('text-[19px] text-[#1C1C1E] font-[600] mb-[18px]')}>
+            style={tailwind(
+              'text-[19px] leading-[22px] text-[#1C1C1E] font-[600] mb-[18px]',
+            )}>
             정보
           </Text>
           <Pressable
@@ -165,7 +169,9 @@ export default function Setting() {
             style={tailwind(
               ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
             )}>
-            <Text style={tailwind('text-[17px] font-[400]')}>이용약관</Text>
+            <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
+              이용약관
+            </Text>
             <ArrowRight24 />
           </Pressable>
           <Pressable
@@ -175,7 +181,7 @@ export default function Setting() {
             style={tailwind(
               ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
             )}>
-            <Text style={tailwind('text-[17px] font-[400]')}>
+            <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
               개인정보처리방침
             </Text>
             <ArrowRight24 />
@@ -198,7 +204,9 @@ export default function Setting() {
             style={tailwind(
               ' py-[18px]  flex flex-row items-center justify-between',
             )}>
-            <Text style={tailwind('text-[17px] font-[400]')}>로그아웃</Text>
+            <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
+              로그아웃
+            </Text>
           </Pressable>
           <Pressable
             onPress={() => {
@@ -222,7 +230,10 @@ export default function Setting() {
             style={tailwind(
               '  mt-[18px] flex flex-row items-center justify-between',
             )}>
-            <Text style={tailwind('text-[17px] font-[400] text-[#A7A7A8]')}>
+            <Text
+              style={tailwind(
+                'text-[17px] leading-[20px] font-[400] text-[#A7A7A8]',
+              )}>
               탈퇴하기
             </Text>
           </Pressable>

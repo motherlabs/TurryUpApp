@@ -227,7 +227,7 @@ export default function Login() {
           </View>
         )}
         <KeyboardAwareScrollView
-          style={tailwind(' h-full pb-[20px]')}
+          style={tailwind(' h-full pb-[20px] pt-4')}
           extraScrollHeight={Platform.OS === 'ios' ? 0 : 0}
           extraHeight={100}
           resetScrollToCoords={{x: 0, y: 0}}
@@ -239,12 +239,12 @@ export default function Login() {
             <View>
               <Text
                 style={tailwind(
-                  'leading-[36] text-[26px] font-[700]',
+                  'leading-[36] text-[26px] leading-[29px] font-[700]',
                 )}>{`반갑습니다!
 휴대폰 번호로 가입해주세요.`}</Text>
               <Text
                 style={tailwind(
-                  'text-[15px] text-[#4F4F51] font-[500] mt-2',
+                  'text-[15px] leading-[18px] text-[#4F4F51] font-[500] mt-2',
                 )}>{`휴대폰 번호는 안전하게 보관되며 공개되지 않아요`}</Text>
             </View>
           </View>
@@ -252,7 +252,7 @@ export default function Login() {
             <View>
               <Text
                 style={tailwind(
-                  `text-[15px] font-[700]  ${
+                  `text-[15px] leading-[18px] font-[700]  ${
                     isRequest ? 'text-black' : 'text-black'
                   }`,
                 )}>{`휴대폰 번호`}</Text>
@@ -263,7 +263,7 @@ export default function Login() {
                 <TextInput
                   ref={phoneInputRef}
                   style={tailwind(
-                    '  font-[400] text-[16px] flex-1 border-b-2 border-gray-500',
+                    '  font-[400] text-[16px] leading-[19px] flex-1 border-b-2 border-gray-500',
                   )}
                   placeholder="휴대폰 번호를 입력해주세요."
                   keyboardType="number-pad"
@@ -293,7 +293,8 @@ export default function Login() {
                     style={tailwind(
                       'w-[61px] ml-2 mt-2 h-[38px] flex flex-row items-center justify-center bg-gray-200 rounded-[4px] ',
                     )}>
-                    <Text style={tailwind('text-[14px] font-[600]')}>
+                    <Text
+                      style={tailwind('text-[14px] leading-[17px] font-[600]')}>
                       재발송
                     </Text>
                   </PressableOpacity>
@@ -315,7 +316,7 @@ export default function Login() {
               <View>
                 <Text
                   style={tailwind(
-                    'text-[15px] font-[700] text-black',
+                    'text-[15px] leading-[18px] font-[700] text-black',
                   )}>{`인증번호`}</Text>
                 <View
                   style={tailwind(
@@ -323,7 +324,9 @@ export default function Login() {
                   )}>
                   <TextInput
                     ref={certifyInput}
-                    style={tailwind('  font-[400] text-[16px] w-full')}
+                    style={tailwind(
+                      '  font-[400] text-[16px] leading-[19px] w-full',
+                    )}
                     placeholder="인증번호를 입력해주세요."
                     keyboardType="number-pad"
                     maxLength={6}
@@ -368,7 +371,7 @@ export default function Login() {
             style={tailwind(
               `  ${
                 certifyNumber.length < 6 ? 'text-white' : 'text-black'
-              }  text-[16px] font-[600]`,
+              }  text-[16px] leading-[19px] font-[600]`,
             )}>
             인증하기
           </Text>
@@ -400,7 +403,7 @@ export default function Login() {
             style={tailwind(
               ` ${
                 phoneNumber.length < 11 ? 'text-white' : 'text-black'
-              }  text-[16px] font-[600] `,
+              }  text-[16px] leading-[19px] font-[600] `,
             )}>
             인증번호 보내기
           </Text>

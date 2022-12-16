@@ -84,7 +84,10 @@ export default function Store() {
             style={tailwind(
               'h-[60px] flex flex-col items-center justify-center',
             )}>
-            <Text style={tailwind('text-[21px] font-[600] text-[#1C1C1E]')}>
+            <Text
+              style={tailwind(
+                'text-[21px] leading-[24px] font-[600] text-[#1C1C1E]',
+              )}>
               매장 상품 더보기
             </Text>
           </View>
@@ -115,14 +118,17 @@ export default function Store() {
               <View style={tailwind('flex flex-row items-center mb-[6px]')}>
                 <Text
                   style={tailwind(
-                    'text-[#1C1C1E] text-[21px] font-[600] mr-1',
+                    'text-[#1C1C1E] text-[21px] leading-[24px] font-[600] mr-1',
                   )}>
                   {store.name}
                 </Text>
                 {getBusinessHours(store.dayOff, store.businessHours) ===
                 '영업중' ? (
                   <View style={tailwind('bg-light rounded-[24px] px-2 py-1')}>
-                    <Text style={tailwind('text-dark text-[13px] font-[600]')}>
+                    <Text
+                      style={tailwind(
+                        'text-dark text-[13px] leading-[16px] font-[600]',
+                      )}>
                       영업중
                     </Text>
                   </View>
@@ -130,7 +136,9 @@ export default function Store() {
                   <View
                     style={tailwind('bg-[#F4F4F4] rounded-[24px] px-2 py-1')}>
                     <Text
-                      style={tailwind('text-[#A7A7A8] text-[13px] font-[600]')}>
+                      style={tailwind(
+                        'text-[#A7A7A8] text-[13px] leading-[16px] font-[600]',
+                      )}>
                       영업종료
                     </Text>
                   </View>
@@ -139,11 +147,14 @@ export default function Store() {
               <View style={tailwind('flex flex-row items-center')}>
                 <Text
                   style={tailwind(
-                    'text-[17px] font-[600] text-[#4F4F51] mr-1',
+                    'text-[17px] leading-[20px] font-[600] text-[#4F4F51] mr-1',
                   )}>
                   영업시간
                 </Text>
-                <Text style={tailwind('text-[17px] font-[400] text-[#4F4F51]')}>
+                <Text
+                  style={tailwind(
+                    'text-[17px] leading-[20px] font-[400] text-[#4F4F51]',
+                  )}>
                   {store.businessHours !== ''
                     ? getBusinessHoursTime(store.businessHours) ===
                       '00:00-00:00'
@@ -187,7 +198,7 @@ export default function Store() {
                           )}>
                           <Text
                             style={tailwind(
-                              'text-white text-[19px] font-[600]',
+                              'text-white text-[19px] leading-[22px] font-[600]',
                             )}>
                             품절
                           </Text>
@@ -202,12 +213,14 @@ export default function Store() {
                   </View>
                   <Text
                     numberOfLines={1}
-                    style={tailwind('mt-[15px] text-[15px] font-[400]')}>
+                    style={tailwind(
+                      'mt-[15px] text-[15px] leading-[18px] font-[400]',
+                    )}>
                     {v.store.name}
                   </Text>
                   <Text
                     style={tailwind(
-                      'mt-1 text-[18px] text-[#39393B] font-[700]',
+                      'mt-1 text-[18px] leading-[21px] text-[#39393B] font-[700]',
                     )}
                     numberOfLines={1}>
                     {v.name}
@@ -219,6 +232,7 @@ export default function Store() {
                         textDecorationLine: 'line-through',
                         textDecorationStyle: 'solid',
                         fontSize: 15,
+                        lineHeight: 18,
                         color: '#A7A7A8',
                       },
                     ]}>
@@ -226,19 +240,23 @@ export default function Store() {
                   </Text>
                   <View style={tailwind('flex flex-row items-center')}>
                     <Text
-                      style={tailwind('text-[18px] font-[700] text-[#1C1C1E]')}>
+                      style={tailwind(
+                        'text-[18px] leading-[21px] font-[700] text-[#1C1C1E]',
+                      )}>
                       {`${converterPrice(v.salePrice.toString())}원`}
                     </Text>
                     <Text
                       style={tailwind(
-                        'text-[#FF2E00] text-[18px] font-[700] ml-1',
+                        'text-[#FF2E00] text-[18px] leading-[21px] font-[700] ml-1',
                       )}>
                       {`${v.discount + v.additionalDiscount}%`}
                     </Text>
                   </View>
                   <View style={tailwind('flex flex-row items-center mt-1')}>
                     <Text
-                      style={tailwind('text-[16px] font-[700] text-[#0066FF]')}>
+                      style={tailwind(
+                        'text-[16px] leading-[19px] font-[700] text-[#0066FF]',
+                      )}>
                       {`${formatRemainingExpiryDateKR(v.expiryDate)}`}
                     </Text>
                     {/* <Text

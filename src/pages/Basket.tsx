@@ -207,14 +207,15 @@ export default function Basket() {
         style={tailwind(
           'rounded-t-[10px] h-[60px] w-full  flex flex-col items-center justify-center border-b border-gray-200',
         )}>
-        <Text style={tailwind(' text-[18px] text-black font-[600]')}>
+        <Text
+          style={tailwind(' text-[18px] leading-[21px] text-black font-[600]')}>
           장바구니
         </Text>
       </View>
       {basketList.length === 0 && (
         <View
           style={tailwind(
-            'bg-white h-[60px] w-full flex flex-row items-center justify-between border-b-4 border-gray-200',
+            'bg-white h-[60px] w-full flex flex-row items-center justify-between ',
           )}
         />
       )}
@@ -232,8 +233,12 @@ export default function Basket() {
                 <Pressable
                   style={tailwind('flex flex-row items-center')}
                   onPress={() => {
-                    dispatch(basketSlice.actions.setSelectedList([]));
-                    dispatch(basketSlice.actions.setSelectedList(basketList));
+                    if (selectedList.length === basketList.length) {
+                      dispatch(basketSlice.actions.setSelectedList([]));
+                    } else {
+                      dispatch(basketSlice.actions.setSelectedList([]));
+                      dispatch(basketSlice.actions.setSelectedList(basketList));
+                    }
                   }}>
                   <CheckBox
                     onValueChange={_ => {}}
@@ -242,8 +247,9 @@ export default function Basket() {
                     offAnimationType="fade"
                     lineWidth={1}
                     boxType="square"
-                    disabled={true}
+                    disabled={false}
                     tintColor="#DEE2E8"
+                    animationDuration={0}
                     value={
                       selectedList.length === basketList.length ? true : false
                     }
@@ -252,7 +258,7 @@ export default function Basket() {
                   />
                   <Text
                     style={tailwind(
-                      'text-[#848688] text-[12px] ml-2',
+                      'text-[#848688] text-[12px] leading-[15px] ml-2',
                     )}>{`전체선택 (${selectedList.length}/${basketList.length})`}</Text>
                 </Pressable>
               </View>
@@ -264,7 +270,10 @@ export default function Basket() {
                   style={tailwind(
                     'w-[50px] h-[30px] rounded-lg flex flex-col items-center justify-center bg-[#F4F4F4]',
                   )}>
-                  <Text style={tailwind('text-[12px] font-[600]')}>삭제</Text>
+                  <Text
+                    style={tailwind('text-[12px] leading-[15px] font-[600]')}>
+                    삭제
+                  </Text>
                 </Pressable>
               </View>
             </View>
@@ -283,7 +292,10 @@ export default function Basket() {
                     style={tailwind(
                       ' p-[21px] flex flex-col justify-start border-b-4 border-gray-200',
                     )}>
-                    <Text style={tailwind(' text-[12px] font-[400]')}>
+                    <Text
+                      style={tailwind(
+                        ' text-[12px] leading-[15px] font-[400]',
+                      )}>
                       {v.goods.store.name}
                     </Text>
                     <View
@@ -313,6 +325,7 @@ export default function Basket() {
                         boxType="square"
                         disabled={false}
                         tintColor="#DEE2E8"
+                        animationDuration={0}
                         value={selectedList.some(item => item.id === v.id)}
                         onCheckColor="#FF4D14"
                         onTintColor="#FF4D14"
@@ -341,6 +354,7 @@ export default function Basket() {
                             textDecorationStyle: 'solid',
                             fontSize: 12,
                             color: '#ACB4BE',
+                            lineHeight: 15,
                           }}>{`${converterPrice(
                           v.goods.originPrice.toString(),
                         )}원`}</Text>
@@ -348,7 +362,7 @@ export default function Basket() {
                           style={tailwind('flex flex-row items-center mt-1')}>
                           <Text
                             style={tailwind(
-                              'text-[14px] font-[600] text-[#1C1C1E]',
+                              'text-[14px]  leading-[17px] font-[600] text-[#1C1C1E]',
                             )}>{`${converterPrice(
                             v.goods.salePrice.toString(),
                           )}원`}</Text>
@@ -361,7 +375,7 @@ export default function Basket() {
                         </View>
                         <Text
                           style={tailwind(
-                            'text-[14px] font-[700] text-[#0066FF] mt-1',
+                            'text-[14px] leading-[17px] font-[700] text-[#0066FF] mt-1',
                           )}>
                           {formatRemainingExpiryDateKR(v.goods.expiryDate)}
                         </Text>
@@ -374,7 +388,10 @@ export default function Basket() {
                             style={tailwind(
                               'w-[50px] h-[30px] rounded-lg flex flex-col items-center justify-center bg-[#F4F4F4]',
                             )}>
-                            <Text style={tailwind('text-[12px] font-[600]')}>
+                            <Text
+                              style={tailwind(
+                                'text-[12px] leading-[15px] font-[600]',
+                              )}>
                               삭제
                             </Text>
                           </Pressable>
@@ -389,7 +406,9 @@ export default function Basket() {
                               <BtnMinusIcon />
                             </Pressable>
                             <Text
-                              style={tailwind('mx-4 text-[18px] font-[600]')}>
+                              style={tailwind(
+                                'mx-4 text-[18px] leading-[21px] font-[600]',
+                              )}>
                               {v.quantity}
                             </Text>
                             <Pressable
@@ -415,9 +434,12 @@ export default function Basket() {
             <View style={tailwind('h-full w-full relative ')}>
               <View
                 style={tailwind(
-                  'absolute left-0 right-0 top-[40%] w-full flex flex-col items-center',
+                  'absolute left-0 right-0 top-[30%] w-full flex flex-col items-center',
                 )}>
-                <Text style={tailwind('text-[19px] font-[500] text-[#909090]')}>
+                <Text
+                  style={tailwind(
+                    'text-[19px] leading-[22px] font-[500] text-[#909090]',
+                  )}>
                   아직 장바구니에 상품이 없어요.
                 </Text>
               </View>
@@ -430,7 +452,10 @@ export default function Basket() {
                   style={tailwind(
                     'flex flex-row items-center justify-center h-[60px] w-full bg-primary',
                   )}>
-                  <Text style={tailwind('text-[16px] font-[600] text-black')}>
+                  <Text
+                    style={tailwind(
+                      'text-[16px] leading-[19px] font-[600] text-black',
+                    )}>
                     실시간 할인 살펴보기
                   </Text>
                 </Pressable>
@@ -451,7 +476,7 @@ export default function Basket() {
             )}>
             <Text
               style={tailwind(
-                'text-[16px] font-[600]',
+                'text-[16px] leading-[19px] font-[600]',
               )}>{`합계 ${converterPrice(totalAmount.toString())}원`}</Text>
           </View>
           <Pressable
@@ -467,7 +492,7 @@ export default function Basket() {
             }}>
             <Text
               style={tailwind(
-                `text-[16px] font-[600] ${
+                `text-[16px] leading-[19px] font-[600] ${
                   totalAmount ? 'text-black' : 'text-white'
                 }`,
               )}>
