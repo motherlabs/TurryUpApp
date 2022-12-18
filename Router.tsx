@@ -135,6 +135,21 @@ export default function Router() {
             }
           }
         }
+      } else if (
+        remoteMessage.notification?.android?.channelId === 'user-order'
+      ) {
+        if (user.id > 0) {
+          if (AppState.currentState === 'active') {
+            // findOneStoreAPIHandler();
+            if (Platform.OS === 'android') {
+              PushNotification.localNotification({
+                message: `${remoteMessage.notification.body}`,
+                title: remoteMessage.notification.title,
+                actions: ['ReplyInput'],
+              });
+            }
+          }
+        }
       }
       if (remoteMessage.category === 'partner-order') {
         if (user.id > 0) {
@@ -142,6 +157,18 @@ export default function Router() {
             findOneStoreAPIHandler();
             PushNotificationIOS.addNotificationRequest({
               id: 'partner-order',
+              title: `${remoteMessage.notification!.title}`,
+              body: `${remoteMessage.notification!.body}`,
+              sound: 'default',
+            });
+          }
+        }
+      } else if (remoteMessage.category === 'user-order') {
+        if (user.id > 0) {
+          if (AppState.currentState === 'active') {
+            // findOneStoreAPIHandler();
+            PushNotificationIOS.addNotificationRequest({
+              id: 'user-order',
               title: `${remoteMessage.notification!.title}`,
               body: `${remoteMessage.notification!.body}`,
               sound: 'default',

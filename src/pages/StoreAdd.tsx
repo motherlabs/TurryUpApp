@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   Pressable,
   TextInput,
   Alert,
@@ -9,6 +8,7 @@ import {
   StatusBar,
   Keyboard,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {

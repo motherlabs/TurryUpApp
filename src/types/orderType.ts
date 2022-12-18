@@ -1,7 +1,7 @@
 import {IGoods} from './goodsType';
 import {IPayment} from './paymentType';
 
-export type OrderStatus = '픽업 대기중' | '픽업 완료';
+export type OrderStatus = '픽업 대기중' | '픽업 완료' | '주문 취소';
 
 export type IOrder = {
   id: number;

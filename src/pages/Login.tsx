@@ -1,4 +1,5 @@
-import {View, Text, TextInput, Pressable, Platform, Alert} from 'react-native';
+import {View, TextInput, Pressable, Platform, Alert} from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTailwind} from 'tailwind-rn/dist';

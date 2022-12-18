@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   Platform,
   Pressable,
   TextInput,
@@ -10,6 +9,7 @@ import {
   Dimensions,
   Switch,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';

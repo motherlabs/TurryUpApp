@@ -1,4 +1,5 @@
-import {View, Text, Pressable} from 'react-native';
+import {View, Pressable} from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {useAppDispatch} from '../store';

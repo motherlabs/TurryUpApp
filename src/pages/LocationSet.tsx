@@ -1,12 +1,12 @@
 import {
   View,
-  Text,
   Pressable,
   Dimensions,
   Alert,
   Platform,
   StatusBar,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -402,7 +402,6 @@ export default function LocationSet() {
                         range: +convertRange(value),
                       }),
                     );
-                    console.log('check3');
                   }}
                   maximumValue={3}
                   value={address.range}

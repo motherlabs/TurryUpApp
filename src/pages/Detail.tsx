@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   Pressable,
   Alert,
   Dimensions,
@@ -8,6 +7,7 @@ import {
   Share,
   Platform,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {RootStackParamList, RouterList} from '../../Router';
@@ -66,6 +66,7 @@ export default function Detail({setStatusbarColor}: Props) {
   const carouselRef = useRef<Carousel<GoodsImage>>(null);
   const [isHeaderColor, setIsHeaderColor] = useState(false);
   const isFocused = useIsFocused();
+  const basketList = useSelector((state: RootState) => state.basket.basketList);
 
   useEffect(() => {
     if (isFocused) {
@@ -115,13 +116,15 @@ export default function Detail({setStatusbarColor}: Props) {
 
   const createBasketAPIHandler = useCallback(async () => {
     dispatch(loadingSlice.actions.setLoading(true));
-    await basketAPI.create({goodsId: goods.id, quantity});
+    const response = await basketAPI.create({goodsId: goods.id, quantity});
+    if (response.data) {
+      dispatch(basketSlice.actions.setList([...basketList, response.data]));
+    }
     dispatch(loadingSlice.actions.setLoading(false));
-    dispatch(basketSlice.actions.incrementCount());
 
     Alert.alert('장바구니에 담았습니다.');
     navigation.goBack();
-  }, [dispatch, goods, quantity, navigation]);
+  }, [dispatch, goods, quantity, navigation, basketList]);
 
   const changeGoodsHandler = useCallback(
     async (goodsId: number) => {
@@ -612,7 +615,26 @@ export default function Detail({setStatusbarColor}: Props) {
         <Pressable
           disabled={goods.quantity === 0 ? true : false}
           onPress={() => {
-            createBasketAPIHandler();
+            if (basketList.some(v => v.goods.id === goods.id)) {
+              Alert.alert(
+                '',
+                '이미 장바구니에 포함되어있는 상품입니다.\n장바구니로 이동하시겠습니까?',
+                [
+                  {
+                    text: '아니요',
+                    style: 'cancel',
+                  },
+                  {
+                    text: '예',
+                    onPress: () => {
+                      navigation.reset({routes: [{name: RouterList.Basket}]});
+                    },
+                  },
+                ],
+              );
+            } else {
+              createBasketAPIHandler();
+            }
           }}
           style={tailwind(
             `flex flex-row items-center justify-center h-[55px] w-full ${

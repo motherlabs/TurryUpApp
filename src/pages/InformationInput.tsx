@@ -1,11 +1,5 @@
-import {
-  View,
-  Text,
-  Platform,
-  StatusBar,
-  Pressable,
-  Dimensions,
-} from 'react-native';
+import {View, Platform, StatusBar, Pressable, Dimensions} from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {NavigationProp, useNavigation} from '@react-navigation/native';

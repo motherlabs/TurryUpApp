@@ -24,10 +24,22 @@ const monthlyPayments = async () => {
   });
 };
 
+const cancelOrder = async (data: {
+  reason: string;
+  cancelAmount: number;
+  orderNumber: string;
+}) => {
+  const accessToken = await EncryptedStorage.getItem('accessToken');
+  return await axios.post(`${Config.API_URL}payment/cancel`, data, {
+    headers: {Authorization: `Bearer ${accessToken}`},
+  });
+};
+
 const paymentAPI = {
   create,
   findAll,
   monthlyPayments,
+  cancelOrder,
 };
 
 export default paymentAPI;

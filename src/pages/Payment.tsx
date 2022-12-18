@@ -36,19 +36,27 @@ export default function Payment() {
   const route = useRoute<RouteProp<RootStackParamList, 'Payment'>>();
 
   const successedHandler = useCallback(
-    async (orderNumber: string) => {
+    async (merchant_uid: string, imp_uid: string) => {
       try {
         dispatch(loadingSlice.actions.setLoading(true));
+        for await (const item of selectedList) {
+          await goodsAPI.updateQuantity({
+            quantity: item.goods.quantity - item.quantity,
+            goodsId: item.goods.id,
+          });
+        }
         const payment = await paymentAPI.create({
           amount: Number(route.params.amount),
           method: 'card',
+          merchant_uid,
+          imp_uid,
         });
         console.log(payment.data);
         if (payment.data.method !== '') {
           for await (const item of selectedList) {
             const order = await orderAPI.create({
               goodsId: item.goods.id,
-              orderNumber: `${orderNumber}-${item.goods.id}`,
+              orderNumber: `${merchant_uid}-${item.goods.id}`,
               price: item.goods.salePrice * item.quantity,
               paymentId: Number(payment.data.id),
               quantity: item.quantity,
@@ -125,7 +133,7 @@ export default function Payment() {
                 failedHandler();
               } else if (response.imp_success === 'true') {
                 console.log('성공', response);
-                successedHandler(response.merchant_uid);
+                successedHandler(response.merchant_uid, response.imp_uid);
               } else {
                 console.log('알수없는 실패', response);
                 failedHandler();

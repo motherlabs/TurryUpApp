@@ -1,12 +1,12 @@
 import {
   View,
-  Text,
   Pressable,
   Dimensions,
   Alert,
   Platform,
   StatusBar,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -25,7 +25,6 @@ import Tabbar, {TabbarType} from '../components/Tabbar';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import basketAPI from '../api/basketAPI';
 import {IBasket} from '../types/basketType';
-import goodsAPI from '../api/goodsAPI';
 import {validateExpiryDate} from '../utils/validateExpiryDate';
 import CheckBox from '@react-native-community/checkbox';
 import BtnPlusIcon from '../assets/svg/btn-plus.svg';
@@ -106,12 +105,12 @@ export default function Basket() {
           `죄송합니다. 다른분의 구매로 ${message} 제품이 품절되었습니다.`,
         );
       } else {
-        for await (const item of selectedList) {
-          await goodsAPI.updateQuantity({
-            quantity: item.goods.quantity - item.quantity,
-            goodsId: item.goods.id,
-          });
-        }
+        // for await (const item of selectedList) {
+        //   await goodsAPI.updateQuantity({
+        //     quantity: item.goods.quantity - item.quantity,
+        //     goodsId: item.goods.id,
+        //   });
+        // }
         navigation.reset({
           routes: [{name: RouterList.Payment, params: {amount: totalAmount}}],
         });

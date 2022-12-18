@@ -1,11 +1,5 @@
-import {
-  View,
-  Text,
-  Pressable,
-  Platform,
-  StatusBar,
-  Dimensions,
-} from 'react-native';
+import {View, Pressable, Platform, StatusBar, Dimensions} from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -96,7 +90,19 @@ export default function BuyHistory() {
                   }}
                   style={tailwind('border-b border-[#F4F4F4] px-4 py-5')}>
                   <View style={tailwind('flex flex-row items-center mb-4')}>
-                    {item.status === '픽업 완료' ? (
+                    {item.status === '주문 취소' ? (
+                      <View
+                        style={tailwind(
+                          'bg-[#FFEBED] rounded-[4px] px-2 py-1 mr-1',
+                        )}>
+                        <Text
+                          style={tailwind(
+                            'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
+                          )}>
+                          재고소진으로 인한 주문취소
+                        </Text>
+                      </View>
+                    ) : item.status === '픽업 완료' ? (
                       <View
                         style={tailwind(
                           'bg-[#F4F4F4] rounded-[4px] px-2 py-1 mr-1',

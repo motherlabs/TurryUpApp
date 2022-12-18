@@ -1,12 +1,12 @@
 import {
   View,
-  Text,
   Pressable,
   Platform,
   StatusBar,
   Dimensions,
   Linking,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTailwind} from 'tailwind-rn/dist';
@@ -200,7 +200,19 @@ export default function MyInfo() {
                     <View
                       style={tailwind('flex flex-col justify-center h-[80px]')}>
                       <View style={tailwind('flex flex-col items-start')}>
-                        {v.status === '픽업 완료' ? (
+                        {v.status === '주문 취소' ? (
+                          <View
+                            style={tailwind(
+                              'bg-[#FFEBED] rounded-[4px] px-2 py-1 mr-1',
+                            )}>
+                            <Text
+                              style={tailwind(
+                                'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
+                              )}>
+                              재고소진으로 인한 주문취소
+                            </Text>
+                          </View>
+                        ) : v.status === '픽업 완료' ? (
                           <View
                             style={tailwind(
                               'bg-[#F4F4F4] rounded-[4px] px-2 py-1 mr-1',

@@ -1,12 +1,13 @@
 import {
   View,
-  Text,
   Pressable,
   Platform,
   StatusBar,
   Dimensions,
   ActivityIndicator,
+  // Text,
 } from 'react-native';
+import {DefaultFontText as Text} from '../components/DefaultFontText';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn/dist';
 import {RootStackParamList, RouterList} from '../../Router';
@@ -265,7 +266,10 @@ export default function Home() {
           'flex flex-row items-center justify-start border-b border-line  h-[60px]',
         )}>
         <Text
-          style={tailwind('text-[22px] font-[600] ml-4 mr-2 leading-[25px]')}>
+          style={[
+            tailwind('text-[22px] ml-4 mr-2 leading-[25px] font-[600]'),
+            {fontFamily: 'Pretendard-SemiBold'},
+          ]}>
           {`${
             address.name === ''
               ? '주소 등록이 필요합니다'
