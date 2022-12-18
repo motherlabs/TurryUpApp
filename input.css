@@ -1,7 +1,1 @@
 @tailwind utilities;
-
-@layer base {
-  html {
-    font-family: Pretendard Variable;
-  }
-}

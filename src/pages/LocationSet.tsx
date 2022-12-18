@@ -33,11 +33,15 @@ import CheckIcon from '../assets/svg/check.svg';
 import BottomSheet from 'reanimated-bottom-sheet';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import {IAddress} from '../types/addressType';
-import {ScrollView} from 'react-native-gesture-handler';
 import Carousel from 'react-native-snap-carousel';
 import BackIcon from '../assets/svg/back.svg';
 import ArrowBottomIcon from '../assets/svg/arrow-bottom.svg';
 import infoAPI from '../api/infoAPI';
+import {
+  GestureHandlerRootView,
+  PanGestureHandler,
+  ScrollView,
+} from 'react-native-gesture-handler';
 
 /**
  * 위도경도 계산
@@ -477,15 +481,14 @@ export default function LocationSet() {
       {isBottomSheet && (
         <View
           style={tailwind(
-            'absolute inset-0 z-30 w-full h-full bg-black opacity-60',
+            'absolute inset-0 z-50 w-full h-full bg-black opacity-60',
           )}
         />
       )}
-
       <BottomSheet
         ref={bottomSheetRef}
         renderContent={() => (
-          <View style={tailwind('h-full bg-gray-300 rounded-t-2xl')}>
+          <View style={tailwind(' h-full rounded-t-2xl')}>
             <Carousel
               keyboardShouldPersistTaps={'handled'}
               ref={carouselRef}
@@ -494,16 +497,24 @@ export default function LocationSet() {
                 <View style={tailwind('w-full h-full relative')}>
                   {item === 0 ? (
                     <View>
-                      <View
-                        style={tailwind(
-                          'bg-white h-[24px] pt-[12px] flex flex-col items-center justify-start',
-                        )}>
-                        <View
-                          style={tailwind(
-                            'bg-gray-200 w-[40px] h-[4px] rounded-lg',
-                          )}
-                        />
-                      </View>
+                      <GestureHandlerRootView>
+                        <PanGestureHandler
+                          onGestureEvent={() => {
+                            //@ts-ignore
+                            bottomSheetRef.current?.snapTo(2);
+                          }}>
+                          <View
+                            style={tailwind(
+                              'bg-white h-[24px] pt-[12px] flex flex-col items-center justify-start',
+                            )}>
+                            <View
+                              style={tailwind(
+                                'bg-gray-200 w-[40px] h-[4px] rounded-lg',
+                              )}
+                            />
+                          </View>
+                        </PanGestureHandler>
+                      </GestureHandlerRootView>
                       <View
                         style={tailwind(
                           'w-full h-[48px] flex flex-col items-center justify-center bg-white relative',
@@ -574,7 +585,7 @@ export default function LocationSet() {
                               StatusBarHeight!,
                           },
                         ]}>
-                        <ScrollView>
+                        <ScrollView style={tailwind('z-10')}>
                           <PressableOpacity
                             onPress={() => {
                               if (addressList.some(v => v.type === 'MYHOME')) {
@@ -860,7 +871,7 @@ export default function LocationSet() {
                       </View>
                     </View>
                   ) : (
-                    <View style={tailwind(' h-full w-full')}>
+                    <View style={tailwind('w-full min-h-full h-full')}>
                       <View
                         style={tailwind(
                           'bg-white h-[24px] pt-[12px] flex flex-col items-center justify-start',
@@ -934,14 +945,6 @@ export default function LocationSet() {
               inactiveSlideOpacity={1}
               inactiveSlideScale={1}
             />
-
-            {/* <View
-              style={[
-                tailwind('bg-gray-300 h-full'),
-                {width: isSearch ? Dimensions.get('window').width : 0},
-              ]}>
-              <Text></Text>
-            </View> */}
           </View>
         )}
         initialSnap={2}

@@ -1,40 +1,32 @@
 import {useEffect, useState} from 'react';
-import {Keyboard, Platform} from 'react-native';
+import {Keyboard, KeyboardEvent} from 'react-native';
 
 export default function useKeyboardEvent() {
   const [isKeyboardActivate, setIsKeyboardActivate] = useState<boolean>(false);
   const [keyboardHeight, setKeyboardHeight] = useState<number>(0);
 
   useEffect(() => {
-    const keyboardWillShow = (e: Event<KeyboardEvent>) => {
+    const keyboardWillShow = (e: KeyboardEvent) => {
       setIsKeyboardActivate(true);
-      if (Platform.OS === 'ios') {
-        setKeyboardHeight(e.endCoordinates.height);
-      }
+      setKeyboardHeight(e.endCoordinates.height);
     };
     const keyboardWillHide = () => {
       setIsKeyboardActivate(false);
-      if (Platform.OS === 'ios') {
-        setKeyboardHeight(0);
-      }
+      setKeyboardHeight(0);
     };
 
-    if (Platform.OS === 'android') {
-      Keyboard.addListener('keyboardDidShow', keyboardWillShow);
-      Keyboard.addListener('keyboardDidHide', keyboardWillHide);
-    } else if (Platform.OS === 'ios') {
-      Keyboard.addListener('keyboardWillShow', keyboardWillShow);
-      Keyboard.addListener('keyboardWillHide', keyboardWillHide);
-    }
+    const showSubscription = Keyboard.addListener(
+      'keyboardDidShow',
+      keyboardWillShow,
+    );
+    const hideSubscription = Keyboard.addListener(
+      'keyboardDidHide',
+      keyboardWillHide,
+    );
 
     return () => {
-      if (Platform.OS === 'android') {
-        Keyboard.addListener('keyboardDidShow', keyboardWillShow).remove();
-        Keyboard.addListener('keyboardDidHide', keyboardWillHide).remove();
-      } else if (Platform.OS === 'ios') {
-        Keyboard.addListener('keyboardWillShow', keyboardWillShow).remove();
-        Keyboard.addListener('keyboardWillHide', keyboardWillHide).remove();
-      }
+      showSubscription.remove();
+      hideSubscription.remove();
     };
   }, []);
 
