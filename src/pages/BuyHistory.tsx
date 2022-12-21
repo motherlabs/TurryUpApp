@@ -123,7 +123,7 @@ export default function BuyHistory() {
                           style={tailwind(
                             'text-[#EC344A] text-[13px] leading-[16px] font-[600]',
                           )}>
-                          유통기한 초과 픽업불가
+                          소비기한 초과 픽업불가
                         </Text>
                       </View>
                     ) : getBusinessHours(

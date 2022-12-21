@@ -15,16 +15,16 @@
 		BD0A936C294006EA00F70023 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9369294003BE00F70023 /* Launch Screen.storyboard */; };
 		BD0A936D294006EB00F70023 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9369294003BE00F70023 /* Launch Screen.storyboard */; };
 		BD0A936F294040EE00F70023 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD0A936E294040EE00F70023 /* AppCenter-Config.plist */; };
-		BD0A9372294F5F0100F70023 /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9371294F5F0100F70023 /* PretendardVariable.ttf */; };
-		BD0A937C294F7CB400F70023 /* Pretendard-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */; };
-		BD0A937D294F7CB400F70023 /* Pretendard-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */; };
-		BD0A937E294F7CB400F70023 /* Pretendard-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */; };
-		BD0A937F294F7CB400F70023 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */; };
-		BD0A9380294F7CB400F70023 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */; };
-		BD0A9381294F7CB400F70023 /* Pretendard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */; };
-		BD0A9382294F7CB400F70023 /* Pretendard-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */; };
-		BD0A9383294F7CB400F70023 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */; };
-		BD0A9384294F7CB400F70023 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */; };
+		BD0A9385294FA4DA00F70023 /* Pretendard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */; };
+		BD0A9386294FA4DE00F70023 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */; };
+		BD0A9387294FA4E000F70023 /* Pretendard-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */; };
+		BD0A9388294FA4E300F70023 /* Pretendard-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */; };
+		BD0A9389294FA4E600F70023 /* Pretendard-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */; };
+		BD0A938A294FA4E900F70023 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */; };
+		BD0A938B294FA4EE00F70023 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */; };
+		BD0A938C294FA4F100F70023 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */; };
+		BD0A938D294FA4F400F70023 /* Pretendard-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */; };
+		BD0A938E294FA4F600F70023 /* PretendardVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD0A9371294F5F0100F70023 /* PretendardVariable.ttf */; };
 		C0974C4611FA7119E5A3C95E /* libPods-TurryUpApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72978EB8724F3DFADD42EA62 /* libPods-TurryUpApp.a */; };
 		F656560982AB65396A07B78E /* libPods-TurryUpApp-TurryUpAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 823FF7F37A25159B0A3ED66D /* libPods-TurryUpApp-TurryUpAppTests.a */; };
 /* End PBXBuildFile section */
@@ -60,15 +60,15 @@
 		BD0A9369294003BE00F70023 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BD0A936E294040EE00F70023 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		BD0A9371294F5F0100F70023 /* PretendardVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PretendardVariable.ttf; sourceTree = "<group>"; };
-		BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraBold.ttf"; path = "Fonts/Pretendard-ExtraBold.ttf"; sourceTree = "<group>"; };
-		BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.ttf"; path = "Fonts/Pretendard-ExtraLight.ttf"; sourceTree = "<group>"; };
-		BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Light.ttf"; path = "Fonts/Pretendard-Light.ttf"; sourceTree = "<group>"; };
-		BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.ttf"; path = "Fonts/Pretendard-Medium.ttf"; sourceTree = "<group>"; };
-		BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.ttf"; path = "Fonts/Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
-		BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Black.ttf"; path = "Fonts/Pretendard-Black.ttf"; sourceTree = "<group>"; };
-		BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Thin.ttf"; path = "Fonts/Pretendard-Thin.ttf"; sourceTree = "<group>"; };
-		BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.ttf"; path = "Fonts/Pretendard-Bold.ttf"; sourceTree = "<group>"; };
-		BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.ttf"; path = "Fonts/Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.ttf"; sourceTree = "<group>"; };
+		BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.ttf"; sourceTree = "<group>"; };
+		BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.ttf"; sourceTree = "<group>"; };
+		BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.ttf"; sourceTree = "<group>"; };
+		BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -143,15 +143,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */,
-				BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */,
-				BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */,
-				BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */,
-				BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */,
-				BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */,
-				BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */,
-				BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */,
-				BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */,
 				BD0A9370294F5F0000F70023 /* Fonts */,
 				BD0A936E294040EE00F70023 /* AppCenter-Config.plist */,
 				BD0574ED2926EA3500D66318 /* GoogleService-Info.plist */,
@@ -190,6 +181,15 @@
 		BD0A9370294F5F0000F70023 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				BD0A9378294F7CB400F70023 /* Pretendard-Black.ttf */,
+				BD0A937A294F7CB400F70023 /* Pretendard-Bold.ttf */,
+				BD0A9373294F7CB300F70023 /* Pretendard-ExtraBold.ttf */,
+				BD0A9374294F7CB300F70023 /* Pretendard-ExtraLight.ttf */,
+				BD0A9375294F7CB300F70023 /* Pretendard-Light.ttf */,
+				BD0A9376294F7CB400F70023 /* Pretendard-Medium.ttf */,
+				BD0A937B294F7CB400F70023 /* Pretendard-Regular.ttf */,
+				BD0A9377294F7CB400F70023 /* Pretendard-SemiBold.ttf */,
+				BD0A9379294F7CB400F70023 /* Pretendard-Thin.ttf */,
 				BD0A9371294F5F0100F70023 /* PretendardVariable.ttf */,
 			);
 			path = Fonts;
@@ -291,20 +291,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0A9382294F7CB400F70023 /* Pretendard-Thin.ttf in Resources */,
-				BD0A9372294F5F0100F70023 /* PretendardVariable.ttf in Resources */,
-				BD0A9381294F7CB400F70023 /* Pretendard-Black.ttf in Resources */,
+				BD0A938C294FA4F100F70023 /* Pretendard-SemiBold.ttf in Resources */,
+				BD0A9387294FA4E000F70023 /* Pretendard-ExtraBold.ttf in Resources */,
+				BD0A938B294FA4EE00F70023 /* Pretendard-Regular.ttf in Resources */,
+				BD0A938E294FA4F600F70023 /* PretendardVariable.ttf in Resources */,
 				BD0A936C294006EA00F70023 /* Launch Screen.storyboard in Resources */,
-				BD0A9380294F7CB400F70023 /* Pretendard-SemiBold.ttf in Resources */,
+				BD0A938D294FA4F400F70023 /* Pretendard-Thin.ttf in Resources */,
 				BD0A936F294040EE00F70023 /* AppCenter-Config.plist in Resources */,
-				BD0A937C294F7CB400F70023 /* Pretendard-ExtraBold.ttf in Resources */,
-				BD0A9383294F7CB400F70023 /* Pretendard-Bold.ttf in Resources */,
-				BD0A9384294F7CB400F70023 /* Pretendard-Regular.ttf in Resources */,
-				BD0A937D294F7CB400F70023 /* Pretendard-ExtraLight.ttf in Resources */,
+				BD0A9389294FA4E600F70023 /* Pretendard-Light.ttf in Resources */,
 				BD0A9368293FFB9B00F70023 /* Images.xcassets in Resources */,
-				BD0A937E294F7CB400F70023 /* Pretendard-Light.ttf in Resources */,
 				BD0574EE2926EA3500D66318 /* GoogleService-Info.plist in Resources */,
-				BD0A937F294F7CB400F70023 /* Pretendard-Medium.ttf in Resources */,
+				BD0A938A294FA4E900F70023 /* Pretendard-Medium.ttf in Resources */,
+				BD0A9386294FA4DE00F70023 /* Pretendard-Bold.ttf in Resources */,
+				BD0A9385294FA4DA00F70023 /* Pretendard-Black.ttf in Resources */,
+				BD0A9388294FA4E300F70023 /* Pretendard-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +565,7 @@
 				CODE_SIGN_ENTITLEMENTS = TurryUpApp/TurryUpApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = JHP8P2BRA3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TurryUpApp/Info.plist;
@@ -602,7 +602,7 @@
 				CODE_SIGN_ENTITLEMENTS = TurryUpApp/TurryUpApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = JHP8P2BRA3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TurryUpApp/Info.plist;

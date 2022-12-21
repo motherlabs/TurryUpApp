@@ -38,6 +38,7 @@ import {wait} from '../utils/timeout';
 import infiniteScrollSlice from '../slices/infiniteScrollSlice';
 import {validateExpiryDate} from '../utils/validateExpiryDate';
 import ArrowBottomIcon from '../assets/svg/arrow-bottom.svg';
+import ClockIcon from '../assets/svg/clock.svg';
 
 export default function Home() {
   const tailwind = useTailwind();
@@ -381,7 +382,7 @@ export default function Home() {
                   }}
                   key={item.id}
                   style={tailwind(
-                    `h-[280px] w-[50%]  mb-[12px]  ${
+                    `h-[280px] w-[50%]  mb-[8px]  ${
                       (index + 1) % 2 === 1 ? 'pr-[6px]' : 'pl-[6px]'
                     }`,
                   )}>
@@ -415,10 +416,27 @@ export default function Home() {
                       source={{uri: item.GoodsImage[0].location}}
                     />
                   </View>
+                  {item.quantity <= 6 && (
+                    <View
+                      style={tailwind(' mt-[4px] flex flex-row items-center')}>
+                      <ClockIcon
+                        style={tailwind('mr-1')}
+                        width={20}
+                        height={20}
+                        fill={'#FF521C'}
+                      />
+                      <Text
+                        style={tailwind(
+                          ' text-[14px] font-[600] text-primary_og leading-[17px] ',
+                        )}>
+                        {`품절임박·잔여 ${item.quantity}개`}
+                      </Text>
+                    </View>
+                  )}
                   <Text
                     numberOfLines={1}
                     style={tailwind(
-                      'mt-[15px] text-[14px] font-[400] leading-[17px]',
+                      'mt-[4px] text-[14px] font-[400] leading-[17px]',
                     )}>
                     {item.store.name}
                   </Text>

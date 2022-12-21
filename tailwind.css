@@ -367,6 +367,18 @@
   margin-bottom: 7px
 }
 
+.mb-\[4px\] {
+  margin-bottom: 4px
+}
+
+.mb-\[8px\] {
+  margin-bottom: 8px
+}
+
+.mt-\[4px\] {
+  margin-top: 4px
+}
+
 .flex {
   display: flex
 }

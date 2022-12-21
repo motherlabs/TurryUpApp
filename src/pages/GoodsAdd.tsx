@@ -85,7 +85,7 @@ export default function GoodsAdd() {
   const salePriceRef = useRef<TextInput>(null);
   const quantityRef = useRef<TextInput>(null);
   const [focus, setFocus] = useState<
-    '' | '이름' | '카테고리' | '정상가' | '할인판매가' | '판매수량' | '유통기한'
+    '' | '이름' | '카테고리' | '정상가' | '할인판매가' | '판매수량' | '소비기한'
   >('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const StatusBarHeight =
@@ -247,7 +247,7 @@ export default function GoodsAdd() {
         validate += '판매수량 ';
       }
       if (expiryDate === '') {
-        validate += '유통기한 ';
+        validate += '소비기한 ';
       }
       if (selectedCategory === '카테고리 선택 하세요') {
         validate += '카테고리 ';
@@ -390,7 +390,7 @@ export default function GoodsAdd() {
         validate += '판매수량 ';
       }
       if (expiryDate === '') {
-        validate += '유통기한 ';
+        validate += '소비기한 ';
       }
       if (selectedCategory === '카테고리 선택 하세요') {
         validate += '카테고리 ';
@@ -744,14 +744,14 @@ export default function GoodsAdd() {
               <Pressable
                 style={tailwind(
                   `w-full h-[64px] flex flex-col justify-center border-b ${
-                    focus === '유통기한' ? 'border-primary' : 'border-[#F4F4F4]'
+                    focus === '소비기한' ? 'border-primary' : 'border-[#F4F4F4]'
                   } `,
                 )}
                 onPress={async () => {
                   Keyboard.dismiss();
                   wait(1000);
                   setDatePickerVisibility(true);
-                  setFocus('유통기한');
+                  setFocus('소비기한');
                 }}>
                 <Text
                   style={tailwind(
@@ -759,7 +759,7 @@ export default function GoodsAdd() {
                       expiryDate === '' ? 'text-[#D3D3D3]' : 'text-[#1C1C1E]'
                     } text-[20px] leading-[23px] font-[400]`,
                   )}>
-                  {expiryDate === '' ? '유통기한' : expiryDate}
+                  {expiryDate === '' ? '소비기한' : expiryDate}
                 </Text>
 
                 <DateTimePickerModal
@@ -805,13 +805,13 @@ export default function GoodsAdd() {
                     style={tailwind(
                       'mt-1 text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
                     )}>
-                    {`유통기한 24시간 남았을 때 : 5% 추가 할인`}
+                    {`소비기한 24시간 남았을 때 : 5% 추가 할인`}
                   </Text>
                   <Text
                     style={tailwind(
                       'mt-1 text-[15px] leading-[18px] text-[#7B7B7C] font-[600]',
                     )}>
-                    {`유통기한 12시간 남았을 때 : 10% 추가 할인`}
+                    {`소비기한 12시간 남았을 때 : 10% 추가 할인`}
                   </Text>
                   <Text
                     style={tailwind(

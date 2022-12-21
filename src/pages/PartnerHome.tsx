@@ -293,7 +293,7 @@ export default function PartnerHome() {
                             <Text
                               style={tailwind(
                                 'text-[15px] leading-[18px] font-[400] text-[#39393B]',
-                              )}>{`유통기한 ${formatKR(
+                              )}>{`소비기한 ${formatKR(
                               new Date(v.expiryDate),
                             )}`}</Text>
                             <Text
@@ -408,7 +408,7 @@ export default function PartnerHome() {
                               <Text
                                 style={tailwind(
                                   'text-[15px] leading-[18px] font-[400] text-[#39393B]',
-                                )}>{`유통기한 ${formatKR(
+                                )}>{`소비기한 ${formatKR(
                                 v.goods.expiryDate,
                               )}`}</Text>
                               {/* <Text
@@ -526,7 +526,7 @@ export default function PartnerHome() {
                               <Text
                                 style={tailwind(
                                   'text-[15px] leading-[18px] font-[400] text-[#39393B]',
-                                )}>{`유통기한 ${formatKR(
+                                )}>{`소비기한 ${formatKR(
                                 v.goods.expiryDate,
                               )}`}</Text>
                               {/* <Text
@@ -612,7 +612,7 @@ export default function PartnerHome() {
                             <Text
                               style={tailwind(
                                 'text-[15px] leading-[18px] font-[400] text-[#39393B]',
-                              )}>{`유통기한 ${formatKR(
+                              )}>{`소비기한 ${formatKR(
                               new Date(v.expiryDate),
                             )}`}</Text>
                             <Text

@@ -459,6 +459,21 @@
 			"marginBottom": 7
 		}
 	},
+	"mb-[4px]": {
+		"style": {
+			"marginBottom": 4
+		}
+	},
+	"mb-[8px]": {
+		"style": {
+			"marginBottom": 8
+		}
+	},
+	"mt-[4px]": {
+		"style": {
+			"marginTop": 4
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"

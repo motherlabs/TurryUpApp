@@ -45,15 +45,15 @@ export function formatRemainingExpiryDateKR(date: Date) {
   const betweenHour = Math.floor(betweenTime / 60);
   const betweenDay = Math.floor(betweenTime / 60 / 24);
   if (betweenTime <= 0) {
-    return `유통기한 ${formatKR(date).slice(2, 10)}`;
+    return `소비기한 ${formatKR(date).slice(2, 10)}`;
   } else if (betweenTime <= 60) {
-    return `유통기한 ${betweenTime}분 남음`;
+    return `소비기한 ${betweenTime}분 남음`;
   } else if (betweenHour <= 72) {
-    return `유통기한 ${betweenHour}시간 남음`;
+    return `소비기한 ${betweenHour}시간 남음`;
   } else if (betweenDay <= 30) {
-    return `유통기한 ${betweenDay}일 남음`;
+    return `소비기한 ${betweenDay}일 남음`;
   } else {
-    return `유통기한 ${formatKR(date).slice(2, 10)}`;
+    return `소비기한 ${formatKR(date).slice(2, 10)}`;
   }
 }
 export function formatValidateTime(date: Date) {
