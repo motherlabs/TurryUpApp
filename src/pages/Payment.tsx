@@ -112,7 +112,7 @@ export default function Payment() {
       <View style={tailwind('bg-light h-full')}>
         <View style={tailwind('w-full h-full')}>
           <IMP.Payment
-            userCode="imp28083472"
+            userCode="imp18245526"
             loading={<Loading />}
             data={{
               pg,

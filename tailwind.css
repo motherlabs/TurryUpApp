@@ -539,6 +539,10 @@
   height: 10px
 }
 
+.h-\[290px\] {
+  height: 290px
+}
+
 .min-h-full {
   min-height: 100%
 }
@@ -661,6 +665,10 @@
 
 .w-\[48\%\] {
   width: 48%
+}
+
+.w-\[200px\] {
+  width: 200px
 }
 
 .flex-1 {
@@ -1114,6 +1122,14 @@
   padding-bottom: 32px
 }
 
+.pb-2 {
+  padding-bottom: 0.5rem
+}
+
+.pb-8 {
+  padding-bottom: 2rem
+}
+
 .text-center {
   text-align: center
 }
@@ -1185,6 +1201,11 @@
 
 .text-\[23px\] {
   font-size: 23px
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem
 }
 
 .font-\[500\] {

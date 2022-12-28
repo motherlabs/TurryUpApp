@@ -382,7 +382,7 @@ export default function Home() {
                   }}
                   key={item.id}
                   style={tailwind(
-                    `h-[280px] w-[50%]  mb-[8px]  ${
+                    `h-[290px] w-[50%]  mb-[8px]  ${
                       (index + 1) % 2 === 1 ? 'pr-[6px]' : 'pl-[6px]'
                     }`,
                   )}>
@@ -445,7 +445,11 @@ export default function Home() {
                     style={tailwind(
                       'mt-1 text-[18px] text-[#39393B] font-[700] leading-[21px]',
                     )}>
-                    {item.name}
+                    {`${
+                      item.name.length > 9
+                        ? `${item.name.slice(0, 9)}...`
+                        : item.name
+                    }`}
                   </Text>
                   <Text
                     style={[
@@ -474,7 +478,7 @@ export default function Home() {
                       {`${item.discount + item.additionalDiscount}%`}
                     </Text>
                   </View>
-                  <View style={tailwind('flex flex-row items-center mt-1')}>
+                  <View style={tailwind('flex flex-row items-center')}>
                     <Text
                       style={tailwind(
                         'text-[16px] leading-[19px] font-[700] text-[#0066FF] leading-[19px]',

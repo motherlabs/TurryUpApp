@@ -152,8 +152,8 @@ android {
         applicationId "com.turryupapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 11
-        versionName "2.2.2"
+        versionCode 16
+        versionName "2.2.7"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
         resValue "string", "build_config_package", "com.turryupapp"
 

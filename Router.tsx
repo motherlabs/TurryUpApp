@@ -44,6 +44,7 @@ import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import TermsOfService from './src/pages/TermsOfService';
 import PrivacyPolicy from './src/pages/PrivacyPolicy';
 import InformationInput from './src/pages/InformationInput';
+import Inquiry from './src/pages/Inquiry';
 
 export type RootStackParamList = {
   Admin: undefined;
@@ -68,6 +69,7 @@ export type RootStackParamList = {
   PrivacyPolicy: undefined;
   TermsOfService: undefined;
   InformationInput: undefined;
+  Inquiry: undefined;
 };
 
 export const RouterList = {
@@ -93,6 +95,7 @@ export const RouterList = {
   PrivacyPolicy: 'PrivacyPolicy',
   TermsOfService: 'TermsOfService',
   InformationInput: 'InformationInput',
+  Inquiry: 'Inquiry',
 } as const;
 export type RouterList = typeof RouterList[keyof typeof RouterList];
 
@@ -434,6 +437,12 @@ export default function Router() {
               name={RouterList.BuyHistory}
               options={{headerShown: false, animation: 'slide_from_right'}}>
               {_ => <BuyHistory />}
+            </Stack.Screen>
+
+            <Stack.Screen
+              name={RouterList.Inquiry}
+              options={{headerShown: false, animation: 'slide_from_right'}}>
+              {_ => <Inquiry />}
             </Stack.Screen>
 
             <Stack.Screen

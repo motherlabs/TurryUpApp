@@ -565,8 +565,8 @@
 				CODE_SIGN_ENTITLEMENTS = TurryUpApp/TurryUpApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = JHP8P2BRA3;
+				CURRENT_PROJECT_VERSION = 16;
+				DEVELOPMENT_TEAM = 9B58M4G4R3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TurryUpApp/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
@@ -582,7 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.turryup;
 				PRODUCT_NAME = TurryUpApp;
-				PROVISIONING_PROFILE_SPECIFIER = "turryup-development";
+				PROVISIONING_PROFILE_SPECIFIER = "ducktem-development";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -602,7 +602,7 @@
 				CODE_SIGN_ENTITLEMENTS = TurryUpApp/TurryUpApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = JHP8P2BRA3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TurryUpApp/Info.plist;

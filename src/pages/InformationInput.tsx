@@ -136,12 +136,12 @@ export default function InformationInput() {
                       if (gender === 'NONE') {
                         setGender('MALE');
 
-                        if (Platform.OS === 'android') {
-                          //@ts-ignore
-                          selectRef.current?.focus()!;
-                        } else {
-                          selectRef.current?.togglePicker(true);
-                        }
+                        // if (Platform.OS === 'android') {
+                        //   //@ts-ignore
+                        //   selectRef.current?.focus()!;
+                        // } else {
+                        //   selectRef.current?.togglePicker(true);
+                        // }
                       } else {
                         setGender('MALE');
                       }
@@ -164,12 +164,12 @@ export default function InformationInput() {
                     onPress={() => {
                       if (gender === 'NONE') {
                         setGender('FEMALE');
-                        if (Platform.OS === 'android') {
-                          //@ts-ignore
-                          selectRef.current?.focus()!;
-                        } else {
-                          selectRef.current?.togglePicker(true);
-                        }
+                        // if (Platform.OS === 'android') {
+                        //   //@ts-ignore
+                        //   selectRef.current?.focus()!;
+                        // } else {
+                        //   selectRef.current?.togglePicker(true);
+                        // }
                       } else {
                         setGender('FEMALE');
                       }
@@ -195,11 +195,11 @@ export default function InformationInput() {
                       <RNPickerSelect
                         useNativeAndroidPickerStyle={false}
                         style={{inputAndroid: {color: 'black'}}}
-                        ref={Platform.OS === 'ios' ? selectRef : null}
-                        pickerProps={{
-                          //@ts-ignore
-                          ref: Platform.OS === 'android' ? selectRef : null,
-                        }}
+                        ref={selectRef}
+                        // pickerProps={{
+                        //   //@ts-ignore
+                        //   ref: Platform.OS === 'android' ? selectRef : null,
+                        // }}
                         placeholder={{
                           label: '태어난 해를 선택해주세요.',
                           value: birthYear,
@@ -207,12 +207,6 @@ export default function InformationInput() {
                         onOpen={() => {
                           if (birthYear === '태어난 해') {
                             setBirthYear('1972');
-                            if (Platform.OS === 'android') {
-                              //@ts-ignore
-                              selectRef.current?.focus()!;
-                            } else {
-                              selectRef.current?.togglePicker(true);
-                            }
                           }
                           console.log('check open');
                         }}

@@ -319,7 +319,19 @@ export default function MyInfo() {
               </Text>
               <Pressable
                 onPress={() => {
-                  Linking.openURL(`tel:010-2784-2756`);
+                  navigation.navigate(RouterList.Inquiry);
+                }}
+                style={tailwind(
+                  ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
+                )}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
+                  문의사항
+                </Text>
+                <ArrowRight24 />
+              </Pressable>
+              <Pressable
+                onPress={() => {
+                  Linking.openURL(`tel:010-7222-3140`);
                 }}
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
@@ -481,9 +493,21 @@ export default function MyInfo() {
                 )}>
                 고객센터
               </Text>
+              {/* <Pressable
+                onPress={() => {
+                  navigation.navigate(RouterList.Inquiry);
+                }}
+                style={tailwind(
+                  ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
+                )}>
+                <Text style={tailwind('text-[17px] leading-[20px] font-[400]')}>
+                  문의사항
+                </Text>
+                <ArrowRight24 />
+              </Pressable> */}
               <Pressable
                 onPress={() => {
-                  Linking.openURL(`tel:010-2784-2756`);
+                  Linking.openURL(`tel:010-7222-3140`);
                 }}
                 style={tailwind(
                   ' py-[18px] border-b border-[#E9E9E9] flex flex-row items-center justify-between',
