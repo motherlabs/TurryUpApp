@@ -112,8 +112,8 @@ export default function LocationSet() {
           `https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords=${location}&output=json`,
           {
             headers: {
-              'X-NCP-APIGW-API-KEY-ID': 'p1frax9zqz',
-              'X-NCP-APIGW-API-KEY': 'zDXK8OwqHimK6qBbmGwa76RjArsWJpmsSK7HLeeN',
+              'X-NCP-APIGW-API-KEY-ID': ',
+              'X-NCP-APIGW-API-KEY': '',
             },
           },
         );
@@ -156,8 +156,8 @@ export default function LocationSet() {
           `https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords=${location}&output=json`,
           {
             headers: {
-              'X-NCP-APIGW-API-KEY-ID': 'p1frax9zqz',
-              'X-NCP-APIGW-API-KEY': 'zDXK8OwqHimK6qBbmGwa76RjArsWJpmsSK7HLeeN',
+              'X-NCP-APIGW-API-KEY-ID': '',
+              'X-NCP-APIGW-API-KEY': '',
             },
           },
         );
@@ -195,8 +195,8 @@ export default function LocationSet() {
           `https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=${data}`,
           {
             headers: {
-              'X-NCP-APIGW-API-KEY-ID': 'p1frax9zqz',
-              'X-NCP-APIGW-API-KEY': 'zDXK8OwqHimK6qBbmGwa76RjArsWJpmsSK7HLeeN',
+              'X-NCP-APIGW-API-KEY-ID': '',
+              'X-NCP-APIGW-API-KEY': '',
             },
           },
         );
