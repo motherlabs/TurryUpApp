@@ -1,3 +1,0 @@
-gem 'fastlane-plugin-increment_version_name'
-gem 'fastlane-plugin-increment_version_code'
-gem 'fastlane-plugin-load_json'
